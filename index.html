@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeZ - Timely & True</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #2c6cb0;
+            --accent-blue: #4a90e2;
+            --light-blue: #e8f2fc;
+            --white: #ffffff;
+            --gray-light: #f5f7fa;
+            --gray-medium: #e1e5eb;
+            --gray-dark: #6c757d;
+            --text-dark: #333333;
+            --shadow: rgba(26, 75, 140, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gray-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .top-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+        
+        .top-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            color: var(--light-blue);
+            font-style: italic;
+        }
+        
+        #main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        #main-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        #main-nav a.active, #main-nav a:hover {
+            color: var(--light-blue);
+        }
+        
+        #main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--light-blue);
+            border-radius: 2px;
+        }
+        
+        #main-nav input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 200px;
+        }
+        
+        #main-nav button {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #main-nav button:hover {
+            background-color: var(--light-blue);
+        }
+        
+        .hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        main {
+            padding: 30px 0;
+            background-color: var(--white);
+        }
+        
+        h2 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-blue);
+            font-size: 1.8rem;
+        }
+        
+        .featured-section {
+            margin-bottom: 40px;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .main-story {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px var(--shadow);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .main-story:hover {
+            transform: translateY(-5px);
+        }
+        
+        .main-story img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .main-story h3 {
+            padding: 20px 20px 10px;
+            font-size: 1.8rem;
+        }
+        
+        .main-story h3 a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .main-story h3 a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .main-story p {
+            padding: 0 20px 20px;
+            color: var(--gray-dark);
+        }
+        
+        .side-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .side-stories article {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow);
+            border-left: 4px solid var(--accent-blue);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .side-stories article:hover {
+            transform: translateX(5px);
+        }
+        
+        .side-stories h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .side-stories h4 a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .side-stories h4 a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .side-stories p {
+            color: var(--gray-dark);
+            font-size: 0.95rem;
+        }
+        
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .news-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--gray-medium);
+            align-items: flex-start;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .news-item:hover {
+            background-color: var(--light-blue);
+        }
+        
+        .news-item img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        
+        .news-item div {
+            flex: 1;
+        }
+        
+        .category {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .news-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .news-item h3 a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .news-item h3 a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .news-item p {
+            color: var(--gray-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .timestamp {
+            color: var(--gray-dark);
+            font-size: 0.85rem;
+        }
+        
+        #load-more {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 30px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #load-more:hover {
+            background-color: var(--secondary-blue);
+        }
+        
+        .sidebar-column h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        
+        .popular-list {
+            margin-bottom: 30px;
+        }
+        
+        .popular-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-medium);
+            list-style-position: inside;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .popular-list li:hover {
+            background-color: var(--light-blue);
+            padding-left: 5px;
+        }
+        
+        .popular-list li a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+            display: block;
+        }
+        
+        .popular-list li a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .ad-banner {
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 2px dashed var(--accent-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light-blue);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 992px) {
+            .featured-grid, .content-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-story img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-blue);
+                padding: 20px;
+                z-index: 100;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            #main-nav.active {
+                display: flex;
+            }
+            
+            .hamburger-menu {
+                display: block;
+            }
+            
+            #main-nav input {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .main-header {
+                flex-wrap: wrap;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .main-story h3 {
+                font-size: 1.5rem;
+            }
+            
+            .news-item {
+                flex-direction: column;
+            }
+            
+            .news-item img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+            
+            .logo {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .main-story img {
+                height: 200px;
+            }
+        }
+        
+        .breaking-news {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.9; }
+            50% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray-dark);
+        }
+        
+        /* Gaya untuk video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px var(--shadow);
+            background-color: #000;
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        
+        .video-overlay:hover {
+            opacity: 0.9;
+        }
+        
+        .video-overlay i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+        
+        .video-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .video-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+        
+        .video-duration {
+            font-size: 0.8rem;
+            color: var(--gray-medium);
+        }
+        
+        .advertisement-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .featured-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .video-thumbnail-list {
+            margin-bottom: 30px;
+        }
+        
+        .video-thumbnail-list > div {
+            transition: transform 0.3s;
+        }
+        
+        .video-thumbnail-list > div:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar container">
+            <span><i class="fas fa-map-marker-alt"></i> Jakarta, 14 Desember 2025</span>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-newspaper"></i> HypeZ News</a> | 
+                <a href="#"><i class="fas fa-chart-line"></i> HypeZ Finance</a> | 
+                <a href="#"><i class="fas fa-futbol"></i> HypeZ Sport</a>
+            </div>
+        </div>
+        <div class="main-header container">
+            <div class="logo" onclick="goHome()">
+                <h1>HypeZ</h1>
+                <div class="tagline">timely & true</div>
+            </div>
+            <button id="hamburger-menu" class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <a href="#" class="active"><i class="fas fa-home"></i> Berita Utama</a>
+                <a href="#"><i class="fas fa-heart"></i> Lifestyle</a>
+                <a href="#"><i class="fas fa-film"></i> Entertain</a>
+                <a href="#"><i class="fas fa-newspaper"></i> News Update</a>
+                <a href="#"><i class="fas fa-gamepad"></i> Hobby</a>
+                <input type="text" id="search-input" placeholder="Cari berita...">
+                <button id="search-btn"><i class="fas fa-search"></i> Cari</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" id="main-content">
+            <div class="breaking-news">
+                <i class="fas fa-bullhorn"></i> &nbsp; BREAKING: Harga BBM Turun Mulai Besok &nbsp; <i class="fas fa-bullhorn"></i>
+            </div>
+            
+            <section class="featured-section">
+                <h2><i class="fas fa-star"></i> Headline Pilihan</h2>
+                <div class="featured-grid">
+                    <div class="main-story" onclick="showNewsDetail('tech-innovation')">
+                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gambar Headline">
+                        <h3><a href="#" onclick="event.preventDefault()">Inovasi Teknologi Terbaru Ubah Wajah Industri Digital Indonesia</a></h3>
+                        <p>Perkembangan pesat teknologi AI dan blockchain mengubah landscape industri digital di tanah air. Para ahli memprediksi akan munculnya ribuan lapangan kerja baru di sektor ini.</p>
+                    </div>
+                    <div class="side-stories">
+                        <article onclick="showNewsDetail('ihsg-record')">
+                            <h4><a href="#" onclick="event.preventDefault()"><i class="fas fa-chart-line"></i> 1. IHSG Tembus Level Tertinggi Sepanjang Masa</a></h4>
+                            <p>Indeks Harga Saham Gabungan (IHSG) mencatat rekor baru di level 7.899, didorong oleh penguatan sektor keuangan dan teknologi.</p>
+                        </article>
+                        <article onclick="showNewsDetail('weather-warning')">
+                            <h4><a href="#" onclick="event.preventDefault()"><i class="fas fa-cloud-showers-heavy"></i> 2. Waspada Cuaca Ekstrem Hingga Akhir Pekan</a></h4>
+                            <p>BMKG memperingatkan potensi cuaca ekstrem berupa hujan lebat disertai angin kencang dan petir di beberapa wilayah Indonesia.</p>
+                        </article>
+                        <article onclick="showNewsDetail('timnas-u23')">
+                            <h4><a href="#" onclick="event.preventDefault()"><i class="fas fa-trophy"></i> 3. Timnas U-23 Siap Hadapi Turnamen Internasional</a></h4>
+                            <p>Tim nasional sepak bola U-23 Indonesia menggelar pemusatan latihan menjelang turnamen pra-Olimpiade di Qatar bulan depan.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-layout">
+                <div class="main-column">
+                    <h2><i class="fas fa-clock"></i> Berita Terbaru</h2>
+                    <article class="news-item" onclick="showNewsDetail('bank-sentral')">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Gambar Berita">
+                        <div>
+                            <span class="category">Ekonomi</span>
+                            <h3><a href="#" onclick="event.preventDefault()">Bank Sentral Pertahankan Suku Bunga Acuan di Level 5,75%</a></h3>
+                            <p>Keputusan ini diambil untuk menjaga stabilitas nilai tukar rupiah dan mengendalikan inflasi di tengah ketidakpastian pasar global.</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> 1 jam lalu</span>
+                        </div>
+                    </article>
+                    <article class="news-item" onclick="showNewsDetail('regulasi-digital')">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Gambar Berita">
+                        <div>
+                            <span class="category">Teknologi</span>
+                            <h3><a href="#" onclick="event.preventDefault()">Pemerintah Siapkan Regulasi Baru untuk Platform Digital</a></h3>
+                            <p>Regulasi ini bertujuan melindungi data pribadi pengguna dan menciptakan ekosistem digital yang sehat dan beretika.</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> 2 jam lalu</span>
+                        </div>
+                    </article>
+                    <article class="news-item" onclick="showNewsDetail('startup-pendanaan')">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Gambar Berita">
+                        <div>
+                            <span class="category">Bisnis</span>
+                            <h3><a href="#" onclick="event.preventDefault()">Startup Lokal Raih Pendanaan Terbesar di Asia Tenggara</a></h3>
+                            <p>Perusahaan rintisan di bidang fintech berhasil mengumpulkan dana sebesar US$150 juta dari investor global.</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> 3 jam lalu</span>
+                        </div>
+                    </article>
+                    <button id="load-more"><i class="fas fa-plus"></i> Muat Lebih Banyak Berita</button>
+                </div>
+
+                <aside class="sidebar-column">
+                    <h2><i class="fas fa-fire"></i> Terpopuler</h2>
+                    <ol class="popular-list">
+                        <li><a onclick="showPopularNews(0)">Analisis Mendalam: Dampak Inflasi Global terhadap Ekonomi Indonesia</a></li>
+                        <li><a onclick="showPopularNews(1)">10 Destinasi Wisata Lokal yang Wajib Dikunjungi di 2025</a></li>
+                        <li><a onclick="showPopularNews(2)">Tips Mengelola Keuangan Pribadi di Tengah Gejolak Ekonomi</a></li>
+                        <li><a onclick="showPopularNews(3)">Potensi Energi Terbarukan sebagai Solusi Krisis Iklim</a></li>
+                        <li><a onclick="showPopularNews(4)">Review Smartphone Flagship Terbaru dengan Kamera Terbaik</a></li>
+                    </ol>
+
+                    <h2><i class="fas fa-ad"></i> Video Iklan</h2>
+                    <div class="video-container" id="ad-video-container">
+                        <div class="advertisement-tag">IKLAN</div>
+                        <video id="ad-video" width="100%" height="250" autoplay muted loop playsinline>
+                            <source src="video/iklan.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="video-info">
+                            <div class="video-title">Promo Akhir Tahun 2025</div>
+                            <div class="video-duration">Durasi: 0:30 • Diputar otomatis</div>
+                        </div>
+                    </div>
+                    
+                    <h2><i class="fas fa-video"></i> Video Pilihan</h2>
+                    <div class="video-container" id="featured-video-container">
+                        <div class="featured-tag">PILIHAN EDITOR</div>
+                        <video id="featured-video" width="100%" height="250" autoplay muted loop playsinline>
+                            <source src="video/wawancara.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        <div class="video-info">
+                            <div class="video-title">Wawancara Eksklusif dengan Menteri Keuangan</div>
+                            <div class="video-duration">Durasi: 15:42 • Diputar otomatis</div>
+                        </div>
+                    </div>
+                    
+                    <section class="comment-section">
+                        <h2 style="border-bottom: 2px solid var(--gray-medium);"><i class="fas fa-comment"></i> Tinggalkan Komentar</h2>
+                        <form id="comment-form" style="background-color: var(--gray-light); padding: 20px; border-radius: 8px;">
+                            <input type="text" placeholder="Nama Anda" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--gray-medium); border-radius: 4px;">
+                            <input type="email" placeholder="Email Anda (tidak akan dipublikasikan)" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--gray-medium); border-radius: 4px;">
+                            <textarea placeholder="Tulis komentar Anda di sini..." required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid var(--gray-medium); border-radius: 4px; resize: vertical; min-height: 100px;"></textarea>
+                            <button type="submit" style="background-color: var(--accent-blue); color: var(--white); padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Kirim Komentar</button>
+                        </form>
+                    </section>
+                </aside>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-info-circle"></i> Tentang Kami</a> |
+                <a href="#"><i class="fas fa-users"></i> Redaksi</a> |
+                <a href="#"><i class="fas fa-briefcase"></i> Karir</a> |
+                <a href="#"><i class="fas fa-book"></i> Pedoman Media Siber</a> |
+                <a href="#"><i class="fas fa-shield-alt"></i> Kebijakan Privasi</a>
+            </div>
+            <p>&copy; 2025 <strong>HypeZ - Timely & True</strong>. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Berita yang tepat waktu dan akurat untuk Indonesia yang lebih informatif.</p>
+        </div>
+    </footer>
+
+<script>
+    const newStoriesData = [
+        { 
+            id: 'news-0', 
+            category: 'Lifestyle', 
+            title: 'Tren Mode Pria 2026: Kembali ke Gaya Klasik Beretika', 
+            content: 'Desainer memprediksi dominasi siluet klasik dengan sentuhan modern dan material ramah lingkungan.', 
+            time: '4 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-1', 
+            category: 'Lifestyle', 
+            title: 'Lima Tips Perawatan Wajah Pria di Iklim Tropis Indonesia', 
+            content: 'Menghindari minyak berlebih dan menggunakan tabir surya adalah kunci utama untuk kesehatan kulit pria di cuaca panas.', 
+            time: '5 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-2', 
+            category: 'Lifestyle', 
+            title: 'Destinasi Glamping Terbaik di Jawa Barat yang Wajib Dicoba', 
+            content: 'Glamping menawarkan pengalaman berkemah mewah dengan fasilitas lengkap dan pemandangan alam yang memukau.', 
+            time: '6 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-3', 
+            category: 'Lifestyle', 
+            title: 'Resep Minuman Detoks Viral untuk Peningkatan Imunitas Tubuh', 
+            content: 'Minuman berbasis buah dan sayuran segar ini diklaim mampu meningkatkan daya tahan tubuh secara signifikan.', 
+            time: '7 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-4', 
+            category: 'Entertain', 
+            title: 'Konser Musisi Internasional Pecahkan Rekor Penonton Terbanyak', 
+            content: 'Artis pop kenamaan dunia sukses memukau ratusan ribu penonton dalam konser tunggalnya di Jakarta.', 
+            time: '8 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-5', 
+            category: 'Entertain', 
+            title: 'Review Film Animasi Lokal yang Tembus Box Office Global', 
+            content: 'Karya sineas muda Indonesia ini dipuji karena kualitas visual dan cerita yang mampu bersaing di pasar internasional.', 
+            time: '9 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-6', 
+            category: 'Entertain', 
+            title: 'Kontroversi di Balik Penghargaan Aktor Pendatang Baru Terbaik', 
+            content: 'Keputusan juri memicu perdebatan sengit di media sosial mengenai kriteria dan objektivitas penilaian.', 
+            time: '10 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-7', 
+            category: 'Entertain', 
+            title: 'Bintang K-Pop Tersandung Skandal, Agensi Beri Klarifikasi Resmi', 
+            content: 'Skandal pribadi salah satu anggota grup K-Pop ternama menghebohkan penggemar di seluruh dunia.', 
+            time: '11 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-8', 
+            category: 'News Update', 
+            title: 'Pemerintah Rilis Aturan Baru terkait Pajak Digital', 
+            content: 'Aturan ini ditujukan untuk menciptakan kesetaraan pajak antara perusahaan konvensional dan platform digital global.', 
+            time: '12 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-9', 
+            category: 'News Update', 
+            title: 'Waspada Penipuan Digital: Modus Baru Phishing Lewat Aplikasi Chat', 
+            content: 'Kepolisian menghimbau masyarakat untuk tidak mengklik tautan mencurigakan yang dikirimkan melalui aplikasi pesan instan.', 
+            time: '13 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-10', 
+            category: 'News Update', 
+            title: 'Dampak Perang Dagang AS-China Terhadap Ekspor Komoditas Indonesia', 
+            content: 'Analisis menunjukkan adanya potensi peningkatan permintaan komoditas tertentu dari Indonesia di pasar global.', 
+            time: '14 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-11', 
+            category: 'News Update', 
+            title: 'Gubernur Resmikan Proyek Infrastruktur Transportasi Terbaru', 
+            content: 'Proyek ini diharapkan dapat mengurangi kemacetan hingga 30% dan meningkatkan konektivitas antar kota.', 
+            time: '15 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-12', 
+            category: 'Hobby', 
+            title: 'Panduan Lengkap Merakit Drone FPV untuk Pemula', 
+            content: 'Drone FPV (First-Person View) kini semakin populer, artikel ini memandu Anda merakit dari nol.', 
+            time: '16 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1517697471339-4aa32003c11a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-13', 
+            category: 'Hobby', 
+            title: 'Menggali Potensi Investasi dari Koleksi Kartu Langka', 
+            content: 'Hobby koleksi kartu tidak hanya menyenangkan, tetapi juga bisa menjadi aset investasi yang menguntungkan.', 
+            time: '17 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-14', 
+            category: 'Hobby', 
+            title: 'Komunitas Pecinta Kucing Ras Lokal Menggelar Pameran Akbar', 
+            content: 'Acara ini bertujuan memperkenalkan berbagai ras kucing asli Indonesia dan mengedukasi masyarakat tentang perawatannya.', 
+            time: '18 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        },
+        { 
+            id: 'news-15', 
+            category: 'Hobby', 
+            title: 'Tips Fotografi Malam Hari Menggunakan Smartphone', 
+            content: 'Teknik dan pengaturan yang tepat memungkinkan Anda menghasilkan foto malam yang menakjubkan hanya dengan ponsel.', 
+            time: '19 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' 
+        }
+    ];
+
+    const allNewsData = {
+        'tech-innovation': { 
+            id: 'tech-innovation', 
+            category: 'Teknologi', 
+            title: 'Inovasi Teknologi Terbaru Ubah Wajah Industri Digital Indonesia', 
+            content: 'Perkembangan pesat teknologi AI dan blockchain mengubah landscape industri digital di tanah air. Para ahli memprediksi akan munculnya ribuan lapangan kerja baru di sektor ini. Indonesia kini menjadi salah satu pemain utama dalam transformasi digital Asia Tenggara dengan pertumbuhan startup yang mencapai 300% dalam 3 tahun terakhir.', 
+            time: '30 menit lalu', 
+            image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        },
+        'ihsg-record': { 
+            id: 'ihsg-record', 
+            category: 'Ekonomi', 
+            title: 'IHSG Tembus Level Tertinggi Sepanjang Masa', 
+            content: 'Indeks Harga Saham Gabungan (IHSG) mencatat rekor baru di level 7.899, didorong oleh penguatan sektor keuangan dan teknologi. Analis memperkirakan tren positif ini akan berlanjut hingga akhir tahun dengan proyeksi mencapai level 8.200. Investor asing kembali masuk ke pasar modal Indonesia seiring membaiknya kondisi ekonomi global.', 
+            time: '1 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        },
+        'weather-warning': { 
+            id: 'weather-warning', 
+            category: 'Cuaca', 
+            title: 'Waspada Cuaca Ekstrem Hingga Akhir Pekan', 
+            content: 'BMKG memperingatkan potensi cuaca ekstrem berupa hujan lebat disertai angin kencang dan petir di beberapa wilayah Indonesia. Masyarakat diminta untuk tetap waspada dan menghindari aktivitas outdoor yang berisiko. Beberapa penerbangan diperkirakan akan mengalami keterlambatan akibat kondisi cuaca buruk ini.', 
+            time: '2 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        },
+        'timnas-u23': { 
+            id: 'timnas-u23', 
+            category: 'Olahraga', 
+            title: 'Timnas U-23 Siap Hadapi Turnamen Internasional', 
+            content: 'Tim nasional sepak bola U-23 Indonesia menggelar pemusatan latihan menjelang turnamen pra-Olimpiade di Qatar bulan depan. Pelatih optimis timnya dapat tampil maksimal dan meraih hasil terbaik di ajang bergengsi ini.', 
+            time: '2 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        },
+        'bank-sentral': { 
+            id: 'bank-sentral', 
+            category: 'Ekonomi', 
+            title: 'Bank Sentral Pertahankan Suku Bunga Acuan di Level 5,75%', 
+            content: 'Keputusan ini diambil untuk menjaga stabilitas nilai tukar rupiah dan mengendalikan inflasi di tengah ketidakpastian pasar global. Bank Indonesia juga memperhitungkan perkembangan ekonomi domestik dan global dalam mengambil keputusan moneter ini.', 
+            time: '1 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        },
+        'regulasi-digital': { 
+            id: 'regulasi-digital', 
+            category: 'Teknologi', 
+            title: 'Pemerintah Siapkan Regulasi Baru untuk Platform Digital', 
+            content: 'Regulasi ini bertujuan melindungi data pribadi pengguna dan menciptakan ekosistem digital yang sehat dan beretika. Pemerintah akan memberlakukan standar keamanan yang lebih ketat bagi platform digital yang beroperasi di Indonesia.', 
+            time: '2 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        },
+        'startup-pendanaan': { 
+            id: 'startup-pendanaan', 
+            category: 'Bisnis', 
+            title: 'Startup Lokal Raih Pendanaan Terbesar di Asia Tenggara', 
+            content: 'Perusahaan rintisan di bidang fintech berhasil mengumpulkan dana sebesar US$150 juta dari investor global. Dana ini akan digunakan untuk ekspansi pasar dan pengembangan produk baru.', 
+            time: '3 jam lalu', 
+            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+        }
+    };
+
+    // Data berita populer
+    const popularNewsData = [
+        {
+            title: 'Analisis Mendalam: Dampak Inflasi Global terhadap Ekonomi Indonesia',
+            content: 'Inflasi global yang melanda berbagai negara memberikan dampak signifikan terhadap ekonomi Indonesia. Analis ekonomi menilai Indonesia cukup tangguh menghadapi tantangan ini berfondasi fundamental ekonomi yang kuat. Bank Indonesia telah mengambil langkah-langkah antisipatif untuk menjaga stabilitas harga dan nilai tukar rupiah.',
+            category: 'Ekonomi',
+            time: '2 hari lalu',
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+            title: '10 Destinasi Wisata Lokal yang Wajib Dikunjungi di 2025',
+            content: 'Indonesia memiliki kekayaan alam dan budaya yang luar biasa. Berikut 10 destinasi wisata lokal yang wajib Anda kunjungi di tahun 2025, mulai dari keindahan alam Raja Ampat hingga pesona budaya Toraja. Setiap destinasi menawarkan pengalaman unik yang tidak akan Anda temukan di tempat lain.',
+            category: 'Travel',
+            time: '3 hari lalu',
+            image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+            title: 'Tips Mengelola Keuangan Pribadi di Tengah Gejolak Ekonomi',
+            content: 'Di tengah ketidakpastian ekonomi global, penting untuk mengelola keuangan pribadi dengan bijak. Artikel ini memberikan 7 tips praktis untuk mengatur pengeluaran, menabung, dan berinvestasi dengan tepat. Mulai dari membuat anggaran hingga memilih instrumen investasi yang sesuai profil risiko.',
+            category: 'Keuangan',
+            time: '1 minggu lalu',
+            image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+            title: 'Potensi Energi Terbarukan sebagai Solusi Krisis Iklim',
+            content: 'Energi terbarukan seperti tenaga surya, angin, dan hidro memiliki potensi besar untuk mengurangi ketergantungan pada bahan bakar fosil. Indonesia dengan letak geografisnya yang strategis memiliki sumber daya energi terbarukan yang melimpah. Pengembangan energi bersih ini diharapkan dapat berkontribusi signifikan terhadap pengurangan emisi karbon.',
+            category: 'Lingkungan',
+            time: '4 hari lalu',
+            image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+            title: 'Review Smartphone Flagship Terbaru dengan Kamera Terbaik',
+            content: 'Smartphone flagship terbaru dari berbagai merek ternama telah diluncurkan dengan kemampuan kamera yang luar biasa. Ulasan ini membandingkan performa kamera dari 5 smartphone terbaik di pasaran, termasuk kemampuan low-light, video recording, dan fitur AI photography. Temukan smartphone yang sesuai kebutuhan fotografi Anda.',
+            category: 'Teknologi',
+            time: '5 hari lalu',
+            image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        }
+    ];
+
+    // Data video rekomendasi dengan URL MP4 lokal
+    const recommendedVideos = [
+        {
+            id: 'video-0',
+            title: 'Cara Investasi Saham untuk Pemula',
+            videoUrl: 'video/investasi.mp4',
+            duration: '12:30',
+            channel: 'HypeZ Finance',
+            description: 'Panduan lengkap untuk pemula yang ingin memulai investasi saham di pasar modal Indonesia.'
+        },
+        {
+            id: 'video-1',
+            title: 'Teknologi Terkini di Indonesia 2025',
+            videoUrl: 'video/teknologi.mp4',
+            duration: '18:45',
+            channel: 'HypeZ Tech',
+            description: 'Eksplorasi teknologi terbaru yang sedang berkembang pesat di Indonesia tahun 2025.'
+        },
+        {
+            id: 'video-2',
+            title: 'Tips Liburan Hemat ke Bali',
+            videoUrl: 'video/liburan.mp4',
+            duration: '9:15',
+            channel: 'HypeZ Travel',
+            description: 'Cara menikmati liburan ke Bali dengan budget terbatas tanpa mengurangi kualitas pengalaman.'
+        }
+    ];
+
+    // Gabungkan semua data berita
+    newStoriesData.forEach(item => {
+        allNewsData[item.id] = item;
+    });
+
+    // Tambahkan data berita populer ke allNewsData
+    popularNewsData.forEach((item, index) => {
+        const newsId = `popular-${index}`;
+        allNewsData[newsId] = {
+            id: newsId,
+            category: item.category,
+            title: item.title,
+            content: item.content,
+            time: item.time,
+            image: item.image
+        };
+    });
+
+    let newsIndex = 0;
+    const newsPerLoad = 4;
+    let currentPage = 'home';
+    let currentPlayingVideo = null;
+
+    function goHome() {
+        location.reload();
+    }
+
+    window.goBack = function() {
+        location.reload();
+    }
+
+    function showNewsDetail(newsId) {
+        const newsData = allNewsData[newsId];
+        if (!newsData) return;
+
+        const mainContent = document.getElementById('main-content');
+        mainContent.innerHTML = `
+            <div style="margin: 20px 0;">
+                <button onclick="goBack()" style="background: var(--primary-blue); color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </button>
+            </div>
+            <article style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px var(--shadow);">
+                <span class="category">${newsData.category}</span>
+                <h1 style="font-size: 2.5rem; color: var(--primary-blue); margin: 20px 0;">${newsData.title}</h1>
+                <div style="color: var(--gray-dark); margin-bottom: 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <span><i class="far fa-clock"></i> ${newsData.time}</span>
+                    <span><i class="fas fa-user"></i> Redaksi HypeZ</span>
+                    <span><i class="fas fa-eye"></i> ${Math.floor(Math.random() * 5000) + 1000} views</span>
+                </div>
+                <img src="${newsData.image}" alt="${newsData.title}" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 30px;">
+                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
+                    <p style="margin-bottom: 20px;">${newsData.content}</p>
+                    <p style="margin-bottom: 20px;">Perkembangan ini mendapat respons positif dari berbagai kalangan, termasuk pelaku industri dan masyarakat umum. Para ahli meyakini bahwa langkah ini akan membawa dampak signifikan terhadap ekosistem yang lebih luas.</p>
+                    <p style="margin-bottom: 20px;">Dalam konteks yang lebih luas, fenomena ini mencerminkan tren global yang sedang berkembang. Berbagai pihak terus mengamati perkembangan situasi dengan saksama untuk mengantisipasi dampak jangka panjang yang mungkin timbul.</p>
+                    <h3 style="color: var(--primary-blue); margin: 30px 0 15px;">Dampak dan Implikasi</h3>
+                    <p style="margin-bottom: 20px;">Menurut analisis mendalam, perubahan ini diperkirakan akan membawa transformasi signifikan di berbagai sektor. Stakeholder kunci telah menyatakan komitmen mereka untuk beradaptasi dengan dinamika baru ini.</p>
+                    <p>Ke depannya, diharapkan akan ada kolaborasi yang lebih erat antara berbagai pihak untuk memaksimalkan potensi positif dan meminimalkan risiko yang mungkin muncul. Monitoring dan evaluasi berkelanjutan akan menjadi kunci keberhasilan implementasi.</p>
+                </div>
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--gray-medium);">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 20px;"><i class="fas fa-share-alt"></i> Bagikan Artikel</h3>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button onclick="alert('Dibagikan ke Facebook')" style="background: #1877f2; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"><i class="fab fa-facebook"></i> Facebook</button>
+                        <button onclick="alert('Dibagikan ke Twitter')" style="background: #1da1f2; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"><i class="fab fa-twitter"></i> Twitter</button>
+                        <button onclick="alert('Dibagikan ke WhatsApp')" style="background: #25d366; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                    </div>
+                </div>
+            </article>
+        `;
+        
+        window.scrollTo(0, 0);
+        currentPage = 'detail';
+    }
+
+    window.showNewsDetail = showNewsDetail;
+
+    function showPopularNews(index) {
+        if (index < 0 || index >= popularNewsData.length) return;
+        
+        const newsId = `popular-${index}`;
+        
+        // Tampilkan detail berita
+        showNewsDetail(newsId);
+    }
+
+    window.showPopularNews = showPopularNews;
+
+    function showCategory(category) {
+        const mainContent = document.getElementById('main-content');
+        let filteredNews = newStoriesData.filter(item => item.category.toLowerCase() === category.toLowerCase());
+
+        mainContent.innerHTML = `
+            <div style="margin: 20px 0;">
+                <button onclick="goBack()" style="background: var(--primary-blue); color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </button>
+            </div>
+            <h2><i class="fas fa-list"></i> Kategori: ${category}</h2>
+            <div class="main-column" style="margin-top: 30px;">
+                ${filteredNews.length > 0 ? filteredNews.map(item => `
+                    <article class="news-item" onclick="showNewsDetail('${item.id}')">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div>
+                            <span class="category">${item.category}</span>
+                            <h3><a href="#" onclick="event.preventDefault()">${item.title}</a></h3>
+                            <p>${item.content}</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> ${item.time}</span>
+                        </div>
+                    </article>
+                `).join('') : '<div class="no-results"><p>Tidak ada berita dalam kategori ini.</p></div>'}
+            </div>
+        `;
+        
+        window.scrollTo(0, 0);
+        currentPage = 'category';
+    }
+
+    function searchNews(query) {
+        if (!query.trim()) {
+            alert('Silakan masukkan kata kunci pencarian.');
+            return;
+        }
+
+        const searchQuery = query.toLowerCase();
+        const mainContent = document.getElementById('main-content');
+        const allNews = Object.values(allNewsData);
+        const searchResults = allNews.filter(item => 
+            item.title.toLowerCase().includes(searchQuery) ||
+            item.content.toLowerCase().includes(searchQuery) ||
+            item.category.toLowerCase().includes(searchQuery)
+        );
+
+        const uniqueResults = searchResults.filter((item, index, self) =>
+            index === self.findIndex(t => t.title === item.title)
+        );
+
+        mainContent.innerHTML = `
+            <div style="margin: 20px 0;">
+                <button onclick="goBack()" style="background: var(--primary-blue); color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </button>
+            </div>
+            <h2><i class="fas fa-search"></i> Hasil Pencarian: "${query}"</h2>
+            <p style="color: var(--gray-dark); margin-bottom: 20px;">Ditemukan ${uniqueResults.length} hasil</p>
+            <div class="main-column" style="margin-top: 30px;">
+                ${uniqueResults.length > 0 ? uniqueResults.map(item => `
+                    <article class="news-item" onclick="showNewsDetail('${item.id}')">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div>
+                            <span class="category">${item.category}</span>
+                            <h3><a href="#" onclick="event.preventDefault()">${item.title}</a></h3>
+                            <p>${item.content}</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> ${item.time}</span>
+                        </div>
+                    </article>
+                `).join('') : '<div class="no-results"><i class="fas fa-search" style="font-size: 3rem; color: var(--gray-medium); margin-bottom: 20px;"></i><p>Tidak ada hasil yang ditemukan untuk "<strong>' + query + '</strong>"</p><p style="color: var(--gray-dark); margin-top: 10px;">Coba gunakan kata kunci yang berbeda.</p></div>'}
+            </div>
+        `;
+        
+        window.scrollTo(0, 0);
+        currentPage = 'search';
+    }
+
+    function loadMoreNews() {
+        const mainColumn = document.querySelector('.main-column');
+        const loadMoreBtn = document.getElementById('load-more');
+        const startIndex = newsIndex;
+        const endIndex = Math.min(newsIndex + newsPerLoad, newStoriesData.length);
+
+        for (let i = startIndex; i < endIndex; i++) {
+            const item = newStoriesData[i];
+            const article = document.createElement('article');
+            article.className = 'news-item';
+            article.onclick = function() { showNewsDetail(item.id); };
+            article.innerHTML = `
+                <img src="${item.image}" alt="${item.title}">
+                <div>
+                    <span class="category">${item.category}</span>
+                    <h3><a href="#" onclick="event.preventDefault()">${item.title}</a></h3>
+                    <p>${item.content}</p>
+                    <span class="timestamp"><i class="far fa-clock"></i> ${item.time}</span>
+                </div>
+            `;
+            mainColumn.insertBefore(article, loadMoreBtn);
+        }
+
+        newsIndex = endIndex;
+
+        if (newsIndex >= newStoriesData.length) {
+            loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> Semua berita telah dimuat';
+            loadMoreBtn.disabled = true;
+            loadMoreBtn.style.backgroundColor = 'var(--gray-dark)';
+            loadMoreBtn.style.cursor = 'default';
+        }
+    }
+
+    // Fungsi untuk memutar video rekomendasi dengan MP4
+    function playRecommendedVideo(index) {
+        if (index < 0 || index >= recommendedVideos.length) return;
+        
+        const videoData = recommendedVideos[index];
+        
+        // Hentikan semua video yang sedang diputar
+        const allVideos = document.querySelectorAll('.video-container video');
+        const allOverlays = document.querySelectorAll('.video-overlay');
+        
+        allVideos.forEach(vid => {
+            vid.pause();
+            vid.style.display = 'none';
+        });
+        
+        allOverlays.forEach(overlay => {
+            overlay.style.display = 'flex';
+        });
+        
+        // Buat container video baru
+        const videoContainer = document.createElement('div');
+        videoContainer.className = 'video-container';
+        videoContainer.id = `recommended-video-${index}`;
+        videoContainer.innerHTML = `
+            <div class="featured-tag">SEDANG DITONTON</div>
+            <video width="100%" height="250" controls autoplay>
+                <source src="${videoData.videoUrl}" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
+            <div class="video-info">
+                <div class="video-title">${videoData.title}</div>
+                <div class="video-duration">${videoData.channel} • ${videoData.duration}</div>
+            </div>
+            <button onclick="closeVideo(this)" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1.2rem; line-height: 1; z-index: 10;">×</button>
+        `;
+        
+        // Tambahkan video baru ke sidebar
+        const sidebar = document.querySelector('.sidebar-column');
+        const featuredVideoSection = document.querySelector('.sidebar-column h2:nth-of-type(3)').parentElement;
+        sidebar.insertBefore(videoContainer, featuredVideoSection);
+        
+        // Scroll ke video
+        videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Mulai memutar video
+        const newVideo = videoContainer.querySelector('video');
+        newVideo.play();
+        
+        currentPlayingVideo = newVideo;
+    }
+
+    // Fungsi untuk menutup video
+    function closeVideo(button) {
+        const videoContainer = button.parentElement;
+        const video = videoContainer.querySelector('video');
+        if (video) {
+            video.pause();
+        }
+        videoContainer.remove();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mainNav = document.getElementById('main-nav');
+        const loadMoreBtn = document.getElementById('load-more');
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-btn');
+        const navLinks = mainNav.querySelectorAll('a');
+        const commentForm = document.getElementById('comment-form');
+
+        hamburgerMenu.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            hamburgerMenu.querySelector('i').className = mainNav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const menuText = this.textContent.trim();
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    hamburgerMenu.querySelector('i').className = 'fas fa-bars';
+                }
+                
+                if (menuText.includes('Berita Utama')) {
+                    location.reload();
+                } else if (menuText.includes('Lifestyle')) {
+                    showCategory('Lifestyle');
+                } else if (menuText.includes('Entertain')) {
+                    showCategory('Entertain');
+                } else if (menuText.includes('News Update')) {
+                    showCategory('News Update');
+                } else if (menuText.includes('Hobby')) {
+                    showCategory('Hobby');
+                }
+            });
+        });
+
+        searchButton.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                searchNews(query);
+            } else {
+                alert('Silakan masukkan kata kunci pencarian.');
+            }
+        });
+
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = searchInput.value.trim();
+                if (query) {
+                    searchNews(query);
+                }
+            }
+        });
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', loadMoreNews);
+        }
+
+        if (commentForm) {
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = this.querySelector('input[placeholder="Nama Anda"]').value;
+                const comment = this.querySelector('textarea').value;
+                alert('Terima kasih, ' + name + '! Komentar Anda telah diterima dan akan dimoderasi.');
+                this.reset();
+            });
+        }
+
+        const currentDate = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const dateString = currentDate.toLocaleDateString('id-ID', options);
+        document.querySelector('.top-bar span').innerHTML = '<i class="fas fa-map-marker-alt"></i> Jakarta, ' + dateString;
+    });
+</script>
+</body>
+</html>
