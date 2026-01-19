@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>HypeZ - Timely & True</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* (CSS yang sama seperti sebelumnya - tidak berubah) */
         :root {
             --primary-blue: #1a4b8c;
             --secondary-blue: #2c6cb0;
@@ -636,6 +640,161 @@
         .video-thumbnail-list > div:hover {
             transform: translateX(5px);
         }
+
+        /* ============== GAYA BARU UNTUK KOMENTAR ============== */
+        .comment-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid var(--gray-medium);
+        }
+        
+        .comment-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comment-form {
+            background-color: var(--gray-light);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .comment-btn {
+            background-color: var(--accent-blue);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .comment-btn:hover {
+            background-color: var(--secondary-blue);
+        }
+        
+        .comments-list {
+            margin-top: 30px;
+        }
+        
+        .comment-item {
+            background-color: var(--gray-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-blue);
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-medium);
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .comment-time {
+            color: var(--gray-dark);
+            font-size: 0.85rem;
+        }
+        
+        .comment-content {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .no-comments {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray-dark);
+            background-color: var(--gray-light);
+            border-radius: 8px;
+        }
+        
+        .comment-count {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .comment-header-flex {
+            display: flex;
+            align-items: center;
+        }
+        
+        .comment-meta {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -678,7 +837,7 @@
                 <h2><i class="fas fa-star"></i> Headline Pilihan</h2>
                 <div class="featured-grid">
                     <div class="main-story" onclick="showNewsDetail('bencana-sumatra')">
-                        <img src="/bencana.jpg" alt="Bencana Banjir dan Longsor di Sumatra">
+                        <img src="bencana.jpg" alt="Bencana Banjir dan Longsor di Sumatra">
                         <h3><a href="#" onclick="event.preventDefault()">Korban Jiwa Bencana Banjir dan Longsor di Sumatra Capai 1.016 Orang</a></h3>
                         <p>Bencana hidrometeorologi berupa banjir bandang dan tanah longsor di Pulau Sumatra terus menimbulkan dampak signifikan, dengan Badan Nasional Penanggulangan Bencana (BNPB) melaporkan peningkatan jumlah korban meninggal dunia hingga mencapai 1.016 jiwa per Minggu (14/12/2025), setelah penemuan 10 jasad tambahan di Aceh dan Sumatera Barat. Selain korban jiwa, bencana ini juga menyebabkan 212 orang hilang dan ribuan warga mengungsi, sementara kerugian material sangat besar mencakup kerusakan parah pada infrastruktur vital, ribuan rumah, serta lahan pertanian, dengan perkiraan kerugian di beberapa kabupaten mencapai ratusan miliar Rupiah. Situasi semakin diperparah karena Kota Padang kembali diterjang banjir bandang pada hari yang sama akibat hujan deras, sehingga tim gabungan terus berupaya maksimal dalam penanganan darurat, penyaluran logistik, dan persiapan hunian sementara.</p>
                     </div>
@@ -702,7 +861,32 @@
             <section class="content-layout">
                 <div class="main-column">
                     <h2><i class="fas fa-clock"></i> Berita Terbaru</h2>
-                    
+                    <article class="news-item" onclick="showNewsDetail('rezby-rsko')">
+                        <img src="satpam.jpg" alt="Rezby Satpam RSKO">
+                        <div>
+                            <span class="category">News Update</span>
+                            <h3><a href="#" onclick="event.preventDefault()">Cerita Rezby, Remaja 20 Tahun Berbaju Satpam di RSKO Cibubur yang Bekerja Demi Membantu Keluarga</a></h3>
+                            <p>Jakarta – Suasana pagi di daerah Cibubur, Jakarta Timur, terasa sejuk setelah hujan turun. Di pos keamanan Rumah Sakit Ketergantungan Obat (RSKO) Cibubur, seorang pemuda berusia 20 tahun berdiri dengan sigap menjaga tempat tersebut.</p>
+                            <p>Dia bernama Rezby, sementara teman-temannya asyik dengan tugas kuliah atau berkumpul di kafe. Rezby harus selalu waspada demi membantu orang tuanya.</p>
+                            <p>Wajahnya masih memancarkan sifat muda, tetapi tatapan matanya tajam mengawasi setiap gerakan di pintu masuk rumah sakit itu. RSKO Cibubur bukanlah rumah sakit biasa, melainkan tempat khusus yang membutuhkan ketangkasan, kesabaran, dan mental yang kuat.</p>
+                            <p>"Begini, Mas. Harus selalu siap," kata Rezby pelan, di tengah dinginnya pagi ketika ia ditemui di antara waktunya bertugas.</p>
+                            <p>Bagi Rezby, memilih untuk memakai seragam keamanan bukanlah pilihan utama, melainkan sebuah kewajiban. Ijazah SMA yang dia dapatkan tahun lalu terpaksa disimpan rapi di dalam lemari, menunda cita-citanya untuk melanjutkan sekolah.</p>
+                            <p>"Keluarga kami sedang mengalami kesulitan," ungkapnya dengan jujur, tanpa mengeluh. "Ayah saya bekerja sebagai guru dan penghasilannya tidak stabil. Adik-adik masih kecil dan memerlukan biaya sekolah yang banyak. Sebagai anak laki-laki tertua, saya merasa perlu membantu."</p>
+
+                            <h4 style="margin-top:12px;">Mengganti Waktu Main dengan Jam Jaga</h4>
+                            <p>Pekerjaan sebagai petugas keamanan ia peroleh setelah beberapa kali mencoba mendaftar di berbagai tempat. Ia menyadari bahwa dengan pendidikan setingkat SMA, pilihan kariernya sangat terbatas. Saat ada kesempatan kerja di RSKO, ia langsung mengambilnya tanpa berpikir panjang.</p>
+                            <p>"Yang terpenting adalah pekerjaan yang halal dan mendapatkan gaji tetap setiap bulan," katanya. Bekerja di RSKO memberikan banyak pengalaman berharga baginya.</p>
+                            <p>Tugasnya tidak hanya menjaga pintu masuk atau berkeliling. Ia sering berinteraksi langsung dengan keluarga pasien yang berada dalam keadaan emosional, khawatir, sedih, atau kadang kadang marah.</p>
+
+                            <h4 style="margin-top:12px;">Tanggung Jawab di Pundak Remaja</h4>
+                            <p>Gaji yang ia terima setiap bulan tidak pernah sepenuhnya ia nikmati. Sebagian besar dari gajinya langsung ia berikan kepada ibunya untuk membantu membayar listrik, air, dan kebutuhan dapur. Sisanya, ia simpan untuk biaya transportasi dan sedikit untuk jajan.</p>
+                            <p>"Kalau ditanya apakah capek, ya capek. Tapi ketika saya melihat ibu saya tersenyum saat saya memberi uang, rasa capek itu hilang," katanya dengan senyuman kecil.</p>
+                            <p>Di balik seragam satpam itu, Rezby bukan hanya seorang pengawal keamanan. Ia adalah anak yang patuh, seorang kakak yang bertanggung jawab, dan remaja yang terpaksa tumbuh dewasa lebih cepat.</p>
+                            <p>Mimpinya untuk melanjutkan pendidikan mungkin tertunda, tetapi semangatnya untuk keluarganya tidak pernah pudar. Rezby adalah gambaran perjuangan yang hening di sudut Ibu Kota, menunjukkan bahwa dedikasi tidak mengenal batasan usia.</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> 5 jam lalu</span>
+                        </div>
+                    </article>
+
                     <article class="news-item" onclick="showNewsDetail('bilqis-laundry')">
                         <img src="laundry.jpg" alt="Bilqis di Laundry">
                         <div>
@@ -848,7 +1032,7 @@
             id: 'kecelakaan-cilangkap', 
             category: 'News Update', 
             title: 'Kecelakaan di Depan BRI Cilangkap, Pemotor Muda Tewas Usai Terjatuh ke Kolong Angkot', 
-            content: 'Sebuah kecelakaan lalu lintas fatal terjadi pada Rabu (12/11/25) sekitar pukul 07.00 WIB di Jl. Raya Cilangkap (depan BRI Cilangkap), melibatkan sepeda motor Honda Supra X (B 4631 TBV) dan angkot Jaklingko (B 1826 BP). Kecelakaan tersebut mengakibatkan pengendara motor berinisial JR (20) meninggal dunia di tempat kejadian setelah tubuhnya terlindas dan terseret angkot. Berdasarkan keterangan di lokasi, korban diduga berusaha menyalip motor lain, lalu bersenggolan dan terjatuh ke arah berlawanan tepat di bawah kolong angkot yang melintas. Korban mengalami luka serius di kepala, perut, dan lengan. Sopir angkot, Saptani, mengaku tidak menyadari kejadian tersebut hingga korban berada di kolong mobilnya. Petugas kepolisian telah mengevakuasi korban dan mengamankan kedua kendaraan untuk penyelidikan lebih lanjut oleh Unit Laka Lantas Polsek Cipayung, sekaligus mengimbau pengendara agar selalu berhati-hati dan tidak memaksakan diri menyalip di kondisi lalu lintas padat.',
+            content: 'Jakarta, 12 November 2025 – Terjadi kecelakaan sepeda motor dengan angkot Jaklingko di Jl Raya Cilangkap depan BRI Cilangkap atau Lucky Cell pada Rabu (12/11/25) sekitar pukul 07.00 WIB. Kecelakaan tersebut menjadikan pemotor pria berinisial JR (20) meninggal dunia di TKP setelah terlindas angkot Jaklingko. Motor korban yaitu Honda Supra X plat B 4631 TBV. Berdasarkan keterangan di lokasi, korban berusaha menyalip sepeda motor lain. Namun, ia diduga bersenggolan dengan pengendara tersebut hingga terjatuh kearah berlawanan dan masuk ke kolong angkot Jaklingko B 1826 BP yang tengah melintas. Tubuh korban terseret sekitar lima meter sebelum akhirnya meninggal dunia di lokasi. Korban mengalami luka cukup serius di bagian kepala, perut, dan lengan. "Senggolan terus jatoh ke kolong mobil saya, terus kelindes. Saya gak sadar, tau-taunya udah ada di kolong mobil," ucap Saptani selaku supir angkot Jaklingko (12/11/25). Petugas kepolisian kemudian mengevakuasi jasad korban dan mengamankan kedua kendaraan yang terlibat untuk penyelidikan lebih lanjut. Hingga kini, kasus kecelakaan tersebut masih ditangani Unit Laka Lantas Polsek Cipayung. Pihak kepolisian mengimbau para pengendara untuk tetap berhati-hati, menjaga jarak aman, serta tidak memaksakan diri menyalip pada kondisi lalu lintas padat guna mencegah kecelakaan serupa terulang kembali.', 
             image: 'kecelakaan.jpg' 
         },
         { 
@@ -862,7 +1046,7 @@
             id: 'mendaki-gunung', 
             category: 'Hobby', 
             title: 'Mendaki di Tengah Tren dan Tantangan: Hobi Mendaki Gunung di Indonesia Semakin Digemari tapi Waspada Tetap Utama', 
-            content: 'Mendaki gunung kembali menjadi hobi favorit di Indonesia pada tahun 2025, menarik minat tinggi dari anak muda, pencinta alam, hingga pelancong internasional, sebagai bentuk olahraga, eksplorasi, dan sarana "healing" dari rutinitas digital. Popularitas ini dipicu oleh dorongan mencari tantangan fisik dan promosi di media sosial mengenai keindahan alam di gunung-gunung populer seperti Semeru dan Rinjani. Namun, tren ini diiringi pengawasan ketat dari otoritas taman nasional, yang memberlakukan pembatasan kuota harian (misalnya, 200 pendaki per hari di Gunung Semeru) dan penutupan jalur untuk evaluasi dan penerapan program keberlanjutan seperti "Zero Waste Hiking Tourism" di Gunung Gede Pangrango. Otoritas menghimbau pendaki untuk tidak terdorong oleh tren FOMO, melainkan mematuhi protokol keselamatan, menyiapkan fisik dan peralatan wajib, serta memperoleh izin resmi demi keselamatan bersama.', 
+            content: 'Mendaki gunung kembali menjadi hobi favorit di Indonesia pada tahun 2025, menarik minat tinggi dari anak muda, pencinta alam, hingga pelancong internasional, sebagai bentuk olahraga, eksplorasi, dan sarana "healing" dari rutinitas digital. Popularitas ini dipicu oleh dorongan mencari tantangan fisik dan promosi di media sosial mengenai keindahan alam di gunung-gunung populer seperti Semeru dan Rinjani. Namun, tren ini diiringi pengawasan ketut dari otoritas taman nasional, yang memberlakukan pembatasan kuota harian (misalnya, 200 pendaki per hari di Gunung Semeru) dan penutupan jalur untuk evaluasi dan penerapan program keberlanjutan seperti "Zero Waste Hiking Tourism" di Gunung Gede Pangrango. Otoritas menghimbau pendaki untuk tidak terdorong oleh tren FOMO, melainkan mematuhi protokol keselamatan, menyiapkan fisik dan peralatan wajib, serta memperoleh izin resmi demi keselamatan bersama.', 
             time: '10 jam lalu', 
             image: 'mendaki.jpg' 
         },
@@ -870,7 +1054,7 @@
             id: 'slow-hobbies', 
             category: 'Hobby', 
             title: 'Tren "Slow Hobbies" Meningkat di Indonesia, Mulai Dari Crafting, Crochet, Sampai Pottery Menjadi Pilihan Anak Muda', 
-            content: 'Sepanjang tahun 2025, tren “slow hobbies” seperti crafting, merajut (crochet), dan membuat keramik (pottery) mengalami kenaikan popularitas di kalangan generasi muda Indonesia, khususnya di kota-kota besar. Fenomena ini muncul sebagai respons terhadap kejenuhan rutinitas digital dan tekanan hidup, di mana kaum muda mencari pelarian untuk mengurangi stres digital dan menemukan aktivitas yang lebih santai dan mindful. Banyak anak muda mengaku kegiatan tangan yang menghasilkan karya fisik ini membuat mereka merasa lebih fokus dan tenang. Komunitas slow hobbies berkembang pesat melalui workshop, pertemuan rutin, dan berbagi teknik secara daring, bahkan menariknya, banyak peserta mulai menjadikan hobi ini sebagai sumber penghasilan tambahan dengan menjual hasil karya mereka di platform digital. Tren ini diperkirakan akan terus berlanjut, karena dianggap sebagai cara baru yang produktif dan tanpa tekanan untuk merawat kesehatan mental.', 
+            content: 'Sepanjang tahun 2025, tren "slow hobbies" seperti crafting, merajut (crochet), dan membuat keramik (pottery) mengalami kenaikan popularitas di kalangan generasi muda Indonesia, khususnya di kota-kota besar. Fenomena ini muncul sebagai respons terhadap kejenuhan rutinitas digital dan tekanan hidup, di mana kaum muda mencari pelarian untuk mengurangi stres digital dan menemukan aktivitas yang lebih santai dan mindful. Banyak anak muda mengaku kegiatan tangan yang menghasilkan karya fisik ini membuat mereka merasa lebih fokus dan tenang. Komunitas slow hobbies berkembang pesat melalui workshop, pertemuan rutin, dan berbagi teknik secara daring, bahkan menariknya, banyak peserta mulai menjadikan hobi ini sebagai sumber penghasilan tambahan dengan menjual hasil karya mereka di platform digital. Tren ini diperkirakan akan terus berlanjut, karena dianggap sebagai cara baru yang produktif dan tanpa tekanan untuk merawat kesehatan mental.', 
             time: '11 jam lalu', 
             image: 'crafting.jpg' 
         },
@@ -901,14 +1085,14 @@
             id: 'festival-lakontara', 
             category: 'Entertain', 
             title: 'Festival Lakontara 2025: Kemeriahan Panggung Seni dan Musik Nusantara Memikat Ribuan Penonton', 
-            content: 'Festival Lakontara 2025, sebuah perhelatan teater musikal dan musik tradisional Nusantara, sukses digelar di Balai Sarbini, Jakarta, pada Rabu malam (10/12/25). Acara yang menarik antusias tinggi dari berbagai kalangan ini merupakan inisiatif Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi untuk mengangkat seni pertunjukan Nusantara melalui kolaborasi antara seniman tradisional dan kreator muda. Panggung Lakontara menampilkan beragam pementasan, termasuk teater musikal, tari kontemporer, dan konser musik kolaboratif. Selain menjadi hiburan, festival ini juga berfungsi sebagai medium edukasi budaya, seperti diungkapkan oleh Grup Kesenian Tari Betawi. Festival ini turut dimeriahkan dengan stan pameran seni rupa, kuliner, serta workshop singkat, dan penyelenggara berkomitmen menjadikan Lakontara sebagai agenda tahunan untuk memperkuat apresiasi seni nasional.',
+            content: 'Bogor, 12 Desember 2025 - Festival Lakontara 2025, perhelatan teater musikal dan musik tradisional Nusantara, sukses digelar di Balai Sarbini, Jakarta, pada Rabu malam (10/12/25). Acara ini menarik antusias tinggi dari penonton berbagai kalangan, termasuk pelajar, seniman, dan pecinta budaya Indonesia. Kegiatan Lakontara merupakan bagian dari upaya Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi untuk mengangkat seni pertunjukan Nusantara melalui kolaborasi antara perwakilan seni tradisional dan kreator muda. Panggung festival diwarnai oleh pementasan teater musikal, tari kontemporer, serta konser musik kolaboratif antara musisi tradisional dan modern. Salah satu penampil, Grup Kesenian Tari Betawi, mengatakan bahwa Lakontara memberi ruang bagi budaya lokal untuk diapresiasi generasi muda. "Ini bukan sekadar hiburan, tapi juga medium edukasi budaya," ujar perwakilan grup tersebut kepada wartawan. Selain itu, festival juga menghadirkan stan pameran seni rupa, kuliner nusantara, serta workshop singkat untuk generasi muda yang ingin mengeksplor kreativitas mereka di bidang seni pertunjukan. Para penonton menyampaikan kepuasannya atas kualitas pertunjukan dan suasana acara yang dinilai mampu menyatukan berbagai elemen budaya Indonesia. Penyelenggara menyatakan Lakontara 2025 akan menjadi agenda tahunan untuk memperkuat apresiasi seni nasional.',
             image: 'festival.jpg' 
         },
         { 
             id: 'vision-plus', 
             category: 'Entertain', 
             title: 'VISION+ dan iQIYI Luncurkan "Combo Asia", Era Baru Hiburan Streaming di Indonesia', 
-            content: 'VISION+ dan iQIYI International resmi meluncurkan paket langganan terbaru bernama “Combo Asia” dalam sebuah acara peluncuran di Jakarta pada Rabu (26/11/25). Inovasi ini dirancang untuk memberikan pengalaman streaming yang lengkap dan mudah diakses bagi penonton Indonesia, menggabungkan konten hiburan premium Asia dari iQIYI (seperti drama populer, film, dan anime) dengan konten olahraga eksklusif dunia dari Premium Sports VISION+. Clarissa Tanoesoedibjo, Deputy CEO VISION+, menyatakan bahwa paket ini bertujuan untuk memperluas pilihan hiburan digital dalam satu layanan terpadu. Paket Combo Asia dapat diakses melalui kedua aplikasi platform dan ditawarkan melalui bundling dengan mitra pembayaran seperti Telkomsel, GoPay, dan Tokopedia, sementara acara peluncuran turut dimeriahkan oleh kehadiran Esther Yu, Global Ambassador iQIYI.', 
+            content: 'Depok, 12 Desember 2025 - Platform hiburan digital VISION+ dan iQIYI International resmi meluncurkan paket langganan terbaru bernama "Combo Asia" dalam acara peluncuran di Jakarta Concert Hall, iNews Tower, Rabu (26/11/25). Paket ini merupakan inovasi yang menghadirkan konten olahraga eksklusif, serial Asia, film, anime, hingga drama lokal dalam satu layanan terpadu untuk penonton Indonesia. Dalam sambutannya, Clarissa Tanoesoedibjo, Deputy CEO VISION+, mengatakan bahwa paket Combo Asia dirancang untuk memperluas pilihan hiburan digital bagi masyarakat Indonesia secara lengkap dan mudah diakses. "Melalui peluncuran Combo Asia, kami ingin memberikan pengalaman streaming yang lengkap, dengan memadukan hiburan premium Asia dan olahraga dalam satu paket, sehingga penonton bisa menikmati konten terbaik tanpa batas," ujar Clarissa saat konferensi pers peluncuran. Paket ini menghadirkan konten dari berbagai genre, termasuk pertandingan olahraga dunia seperti sepak bola dan tenis yang disiarkan melalui Premium Sports VISION+, serta berbagai drama populer, film dan anime kelas Asia dari iQIYI. Paket Combo Asia dapat diakses melalui aplikasi VISION+ dan iQIYI, serta dibundle dengan penawaran lewat mitra seperti Telkomsel, GoPay, dan Tokopedia untuk memberi kemudahan bagi pelanggan. Acara peluncuran juga dimeriahkan oleh kehadiran sejumlah artis dan bintang tamu, termasuk Esther Yu, Global Ambassador iQIYI, yang turut menyapa penonton Indonesia secara langsung dan berbagi pengalaman tentang perkembangan konten Asia yang semakin diminati di Tanah Air.', 
             time: '16 jam lalu', 
             image: 'streaming.jpg' 
         },
@@ -939,7 +1123,7 @@
             id: 'skin-barrier', 
             category: 'Lifestyle', 
             title: '"Skin Barrier Hero": Tren Skincare Desember Fokus pada Pemulihan dan Double Moisturizing', 
-            content: 'Musim liburan yang identik dengan perjalanan, perubahan cuaca ekstrem (dari panas ke dingin AC), serta konsumsi makanan kaya kalori memicu respons baru di industri kecantikan: Fokus pada Pemulihan Skin Barrier. Para penggemar skincare di akhir tahun 2025 mulai memprioritaskan produk dengan kandungan yang berfungsi sebagai "Pahlawan Pelindung Kulit" (Skin Barrier Hero).  Bahan Utama yang Dicari: Ceramide: Kunci untuk memperbaiki lapisan pelindung kulit, Hyaluronic Acid (Low Molecular Weight): Untuk hidrasi mendalam tanpa rasa lengket, Niacinamide: Dalam konsentrasi rendah hingga sedang (2-5%) untuk menenangkan.  Teknik "Double Moisturizing": Tren baru yang muncul adalah "Double Moisturizing" penggunaan dua lapis pelembap yang berbeda. Lapisan pertama menggunakan pelembap berbahan dasar air (gel) untuk hidrasi, diikuti oleh lapisan kedua berupa face oil atau cream yang lebih tebal (occlusive) untuk mengunci semua kebaikan skincare dan melindungi dari penguapan saat tidur atau bepergian. "Ini adalah cara efektif untuk mencegah kulit kusam atau meradang akibat stres liburan," kata Bea Puspita, seorang Beauty Vlogger terkemuka.', 
+            content: 'Musim liburan yang identik dengan perjalanan, perubahan cuaca ekstrem (dari panas ke dingin AC), serta konsumsi makanan kaya kalori memicu respons baru di industri kecantikan: Fokus pada Pemulihan Skin Barrier. Para penggemar skincare di akhir tahun 2025 mulai memrioritaskan produk dengan kandungan yang berfungsi sebagai "Pahlawan Pelindung Kulit" (Skin Barrier Hero).  Bahan Utama yang Dicari: Ceramide: Kunci untuk memperbaiki lapisan pelindung kulit, Hyaluronic Acid (Low Molecular Weight): Untuk hidrasi mendalam tanpa rasa lengket, Niacinamide: Dalam konsentrasi rendah hingga sedang (2-5%) untuk menenangkan.  Teknik "Double Moisturizing": Tren baru yang muncul adalah "Double Moisturizing" penggunaan dua lapis pelembap yang berbeda. Lapisan pertama menggunakan pelembap berbahan dasar air (gel) untuk hidrasi, diikuti oleh lapisan kedua berupa face oil atau cream yang lebih tebal (occlusive) untuk mengunci semua kebaikan skincare dan melindungi dari penguapan saat tidur atau bepergian. "Ini adalah cara efektif untuk mencegah kulit kusam atau meradang akibat stres liburan," kata Bea Puspita, seorang Beauty Vlogger terkemuka.', 
             time: '20 jam lalu', 
             image: 'skincare2.jpg' 
         }
@@ -950,7 +1134,36 @@
             id: 'rezby-rsko', 
             category: 'News Update', 
             title: 'Cerita Rezby, Remaja 20 Tahun Berbaju Satpam di RSKO Cibubur yang Bekerja Demi Membantu Keluarga', 
-            content: 'Suasana pagi di daerah Cibubur, Jakarta Timur, terasa sejuk setelah hujan turun. Di pos keamanan Rumah Sakit Ketergantungan Obat (RSKO) Cibubur, seorang pemuda berusia 20 tahun berdiri dengan sigap menjaga tempat tersebut. Dia bernama Rezby, sementara teman-temannya asyik dengan tugas kuliah atau berkumpul di kafe. Rezby harus selalu waspada demi membantu orang tuanya. Wajahnya masih memancarkan sifat muda, tetapi tatapan matanya tajam mengawasi setiap gerakan di pintu masuk rumah sakit itu. RSKO Cibubur bukanlah rumah sakit biasa, melainkan tempat khusus yang membutuhkan ketangkasan, kesabaran, dan mental yang kuat. Bagi Rezby, memilih untuk memakai seragam keamanan bukanlah pilihan utama, melainkan sebuah kewajiban. Ijazah SMA yang dia dapatkan tahun lalu terpaksa disimpan rapi di dalam lemari, menunda cita-citanya untuk melanjutkan sekolah. "Keluarga kami sedang mengalami kesulitan," ungkapnya dengan jujur, tanpa mengeluh. "Ayah saya bekerja sebagai guru dan penghasilannya tidak stabil. Adik-adik masih kecil dan memerlukan biaya sekolah yang banyak. Sebagai anak laki-laki tertua, saya merasa perlu membantu." Pekerjaan sebagai petugas keamanan ia peroleh setelah beberapa kali mencoba mendaftar di berbagai tempat. Ia menyadari bahwa dengan pendidikan setingkat SMA, pilihan kariernya sangat terbatas. Saat ada kesempatan kerja di RSKO, ia langsung mengambilnya tanpa berpikir panjang. "Yang terpenting adalah pekerjaan yang halal dan mendapatkan gaji tetap setiap bulan," katanya. Gaji yang ia terima setiap bulan tidak pernah sepenuhnya ia nikmati. Sebagian besar dari gajinya langsung ia berikan kepada ibunya untuk membantu membayar listrik, air, dan kebutuhan dapur. Sisanya, ia simpan untuk biaya transportasi dan sedikit untuk jajan. "Kalau ditanya apakah capek, ya capek. Tapi ketika saya melihat ibu saya tersenyum saat saya memberi uang, rasa capek itu hilang," katanya dengan senyuman kecil. Di balik seragam satpam itu, Rezby bukan hanya seorang pengawal keamanan. Ia adalah anak yang patuh, seorang kakak yang bertanggung jawab, dan remaja yang terpaksa tumbuh dewasa lebih cepat. Mimpinya untuk melanjutkan pendidikan mungkin tertunda, tetapi semangatnya untuk keluarganya tidak pernah pudar.', 
+            author: 'Wildan Naufal Arifin',
+            content: `<p>Jakarta – Suasana pagi di daerah Cibubur, Jakarta Timur, terasa sejuk setelah hujan turun. Di pos keamanan Rumah Sakit Ketergantungan Obat (RSKO) Cibubur, seorang pemuda berusia 20 tahun berdiri dengan sigap menjaga tempat tersebut.</p>
+
+<p>Dia bernama Rezby, sementara teman-temannya asyik dengan tugas kuliah atau berkumpul di kafe. Rezby harus selalu waspada demi membantu orang tuanya.</p>
+
+<p>Wajahnya masih memancarkan sifat muda, tetapi tatapan matanya tajam mengawasi setiap gerakan di pintu masuk rumah sakit itu. RSKO Cibubur bukanlah rumah sakit biasa, melainkan tempat khusus yang membutuhkan ketangkasan, kesabaran, dan mental yang kuat.</p>
+
+<p>"Begini, Mas. Harus selalu siap," kata Rezby pelan, di tengah dinginnya pagi ketika ia ditemui di antara waktunya bertugas.</p>
+
+<p>Bagi Rezby, memilih untuk memakai seragam keamanan bukanlah pilihan utama, melainkan sebuah kewajiban. Ijazah SMA yang dia dapatkan tahun lalu terpaksa disimpan rapi di dalam lemari, menunda cita-citanya untuk melanjutkan sekolah.</p>
+
+<p>"Keluarga kami sedang mengalami kesulitan," ungkapnya dengan jujur, tanpa mengeluh. "Ayah saya bekerja sebagai guru dan penghasilannya tidak stabil. Adik-adik masih kecil dan memerlukan biaya sekolah yang banyak. Sebagai anak laki-laki tertua, saya merasa perlu membantu."</p>
+
+<p>Mengganti Waktu Main dengan Jam Jaga</p>
+
+<p>Pekerjaan sebagai petugas keamanan ia peroleh setelah beberapa kali mencoba mendaftar di berbagai tempat. Ia menyadari bahwa dengan pendidikan setingkat SMA, pilihan kariernya sangat terbatas. Saat ada kesempatan kerja di RSKO, ia langsung mengambilnya tanpa berpikir panjang.</p>
+
+<p>"Yang terpenting adalah pekerjaan yang halal dan mendapatkan gaji tetap setiap bulan," katanya.</p>
+
+<p>Bekerja di RSKO memberikan banyak pengalaman berharga baginya. Tugasnya tidak hanya menjaga pintu masuk atau berkeliling. Ia sering berinteraksi langsung dengan keluarga pasien yang berada dalam keadaan emosional, khawatir, sedih, atau kadang kadang marah.</p>
+
+<h4>Tanggung Jawab di Pundak Remaja</h4>
+
+<p>Gaji yang ia terima setiap bulan tidak pernah sepenuhnya ia nikmati. Sebagian besar dari gajinya langsung ia berikan kepada ibunya untuk membantu membayar listrik, air, dan kebutuhan dapur. Sisanya, ia simpan untuk biaya transportasi dan sedikit untuk jajan.</p>
+
+<p>"Kalau ditanya apakah capek, ya capek. Tapi ketika saya melihat ibu saya tersenyum saat saya memberi uang, rasa capek itu hilang," katanya dengan senyuman kecil.</p>
+
+<p>Di balik seragam satpam itu, Rezby bukan hanya seorang pengawal keamanan. Ia adalah anak yang patuh, seorang kakak yang bertanggung jawab, dan remaja yang terpaksa tumbuh dewasa lebih cepat.</p>
+
+<p>Mimpinya untuk melanjutkan pendidikan mungkin tertunda, tetapi semangatnya untuk keluarganya tidak pernah pudar. Rezby adalah gambaran perjuangan yang hening di sudut Ibu Kota, menunjukkan bahwa dedikasi tidak mengenal batasan usia.</p>`, 
             time: '5 jam lalu', 
             image: 'satpam.jpg' 
         },
@@ -958,7 +1171,32 @@
             id: 'bilqis-laundry', 
             category: 'News Update', 
             title: 'Tetes Keringat dan Mimpi di Balik Mesin Cuci: Kisah Bilqis, Penopang Keluarga di Usia 21 Tahun', 
-            content: 'Usia 21 tahun seharusnya identik dengan hiruk pikuk kampus, diskusi yang memicu semangat, dan malam minggu yang penuh eksplorasi. Namun, bagi Bilqis, realitasnya berbeda. Pagi hari tidak disambut dengan jadwal mata kuliah, melainkan dengan bunyi mesin pengering dan setumpuk pakaian kotor di Wacuci Laundry. Bilqis adalah gadis yang ceria. Senyum lebarnya adalah energi yang ia gunakan untuk menyembunyikan kenyataan pahit: ia harus bekerja, meninggalkan sementara mimpi berkuliahnya, demi menopang tiga nyawa yang bergantung padanya---ibu, adik yang masih SD, dan abang yang sedang mencari pekerjaan, setelah kepergian sang ayah. Sejak sang ayah meninggal dunia, roda kehidupan keluarga Bilqis berputar lebih lambat dan penuh tantangan. Ia tinggal bersama ibunya, seorang abang yang belum mendapatkan pekerjaan, dan seorang adik yang masih duduk di bangku SD. Sebagai anak tengah yang paling bertanggung jawab, ia sadar harus mengambil alih peran almarhum ayahnya. "Saya ingin sekali kuliah, seperti teman-teman saya. Tapi saat melihat Ibu saya butuh bantuan saya untuk menghidupi keluarga ini, rasanya mimpi saya bisa ditunda dulu," ujar Bilqis. Setiap hari, Bilqis bekerja keras di Wacuci Laundry, sebuah rutinitas yang hanya menyisakannya satu hari libur dalam seminggu. Tangannya cekatan memilah pakaian, mengoperasikan mesin cuci raksasa, dan melipatnya dengan rapi. Pekerjaan yang menguras tenaga ini ia jalani dengan semangat pantang menyerah. Penghasilannya berkisar antara Rp1 juta hingga Rp2 juta per bulan. Angka yang tergolong kecil di tengah himpitan biaya hidup, namun di tangan Bilqis, nominal tersebut menjadi sumber keberkahan. Sebagian besar gajinya ia sisihkan untuk membantu biaya sehari-hari, kebutuhan sekolah sang adik, dan memastikan ibunya tidak kekurangan. "Banyak yang dia sisihkan untuk keluarga. Dia itu sangat peduli, bahkan dia lebih memprioritaskan kebutuhan adiknya daripada membeli sesuatu untuk dirinya sendiri. Hatinya memang semurni itu," ucap Tya selaku sahabatnya yang mengetahui perjuangan Bilqis. Meskipun hidupnya penuh perjuangan, Bilqis dikenal sebagai pribadi yang periang, baik hati, dan sangat perhatian terhadap sahabat-sahabat terdekatnya. Ia selalu meluangkan waktu untuk mendengarkan keluh kesah mereka, meskipun ia sendiri menyimpan beban yang jauh lebih besar.', 
+            author: 'Dian Putri Maharani',
+            content: `<p>Jakarta, 2 November 2025 - Usia 21 tahun seharusnya identik dengan hiruk pikuk kampus, diskusi yang memicu semangat, dan malam minggu yang penuh eksplorasi. Namun, bagi Bilqis, realitasnya berbeda. Pagi hari tidak disambut dengan jadwal mata kuliah, melainkan dengan bunyi mesin pengering dan setumpuk pakaian kotor di Wacuci Laundry.</p>
+
+<p>Bilqis adalah gadis yang ceria. Senyum lebarnya adalah energi yang ia gunakan untuk menyembunyikan kenyataan pahit: ia harus bekerja, meninggalkan sementara mimpi berkuliahnya, demi menopang tiga nyawa yang bergantung padanya—ibu, adik yang masih SD, dan abang yang sedang mencari pekerjaan, setelah kepergian sang ayah.</p>
+
+<h4>Melipat Mimpi Demi Kasih Ibu</h4>
+
+<p>Sejak sang ayah meninggal dunia, roda kehidupan keluarga Bilqis berputar lebih lambat dan penuh tantangan. Ia tinggal bersama ibunya, seorang abang yang belum mendapatkan pekerjaan, dan seorang adik yang masih duduk di bangku SD. Sebagai anak tengah yang paling bertanggung jawab, ia sadar harus mengambil alih peran almarhum ayahnya.</p>
+
+<p>"Saya ingin sekali kuliah, seperti teman-teman saya. Tapi saat melihat Ibu saya butuh bantuan saya untuk menghidupi keluarga ini, rasanya mimpi saya bisa ditunda dulu,” ujar Bilqis (1/11/2025).</p>
+
+<p>Setiap hari, Bilqis bekerja keras di Wacuci Laundry, sebuah rutinitas yang hanya menyisakannya satu hari libur dalam seminggu. Tangannya cekatan memilah pakaian,</p>
+
+<p>mengoperasikan mesin cuci raksasa, dan melipatnya dengan rapi. Pekerjaan yang menguras tenaga ini ia jalani dengan semangat pantang menyerah.</p>
+
+<h4>Gaji Sejutaan yang Penuh Berkah</h4>
+
+<p>Penghasilannya berkisar antara Rp1 juta hingga Rp2 juta per bulan. Angka yang tergolong kecil di tengah himpitan biaya hidup, namun di tangan Bilqis, nominal tersebut menjadi sumber keberkahan. Sebagian besar gajinya ia sisihkan untuk membantu biaya sehari-hari, kebutuhan sekolah sang adik, dan memastikan ibunya tidak kekurangan.</p>
+
+<p>"Banyak yang dia sisihkan untuk keluarga. Dia itu sangat peduli, bahkan dia lebih memprioritaskan kebutuhan adiknya daripada membeli sesuatu untuk dirinya sendiri. Hatinya memang semurni itu," ucap Tya selaku sahabatnya yang mengetahui perjuangan Bilqis (1/11/2025).</p>
+
+<p>Meskipun hidupnya penuh perjuangan, Bilqis dikenal sebagai pribadi yang periang, baik hati, dan sangat perhatian terhadap sahabat-sahabat terdekatnya. Ia selalu meluangkan waktu untuk mendengarkan keluh kesah mereka, meskipun ia sendiri menyimpan beban yang jauh lebih besar.</p>
+
+<p>Bilqis mengajarkan kita tentang arti pengorbanan sejati; bahwa kebahagiaan tidak selalu diukur dari terpenuhinya ambisi pribadi, tetapi juga dari kemampuan kita untuk menjadi cahaya bagi orang-orang yang kita cintai.</p>
+
+<p>Mungkin saat ini Bilqis masih memanggul beban yang berat, namun di balik tumpukan cucian yang bersih dan rapi, ia sedang merajut harapan. Ia tidak hanya mencuci pakaian, tetapi juga mencuci kekhawatiran keluarganya, menjanjikan masa depan yang lebih cerah, satu helai lipatan demi satu helai lipatan.</p>`, 
             time: '6 jam lalu', 
             image: 'laundry.jpg' 
         },
@@ -966,22 +1204,76 @@
             id: 'bencana-sumatra', 
             category: 'News Update', 
             title: 'Update Terbaru: Korban Jiwa Bencana Banjir dan Longsor di Sumatra Capai 1.016 Orang', 
-            content: 'Bencana hidrometeorologi berupa banjir bandang dan tanah longsor di Pulau Sumatra terus menimbulkan dampak signifikan, dengan Badan Nasional Penanggulangan Bencana (BNPB) melaporkan peningkatan jumlah korban meninggal dunia hingga mencapai 1.016 jiwa per Minggu (14/12/2025), setelah penemuan 10 jasad tambahan di Aceh dan Sumatera Barat. Selain korban jiwa, bencana ini juga menyebabkan 212 orang hilang dan ribuan warga mengungsi, sementara kerugian material sangat besar mencakup kerusakan parah pada infrastruktur vital, ribuan rumah, serta lahan pertanian, dengan perkiraan kerugian di beberapa kabupaten mencapai ratusan miliar Rupiah. Situasi semakin diperparah karena Kota Padang kembali diterjang banjir bandang pada hari yang sama akibat hujan deras, sehingga tim gabungan terus berupaya maksimal dalam penanganan darurat, penyaluran logistik, dan persiapan hunian sementara.',
+            author: 'Muhammad Athar Ghailan',
+            content: `<p>JAKARTA – Bencana hidrometeorologi berupa banjir bandang dan tanah longsor yang melanda sejumlah wilayah di Pulau Sumatra terus menimbulkan dampak yang signifikan. Badan Nasional Penanggulangan Bencana (BNPB) merilis data terbaru pada Minggu (14/12/2025), yang menyatakan jumlah korban meninggal dunia telah mencapai angka 1.016 jiwa.</p>
+
+<p>Kenaikan jumlah korban jiwa ini terjadi setelah adanya penemuan 10 jasad tambahan dari proses pencarian dan pertolongan tim gabungan, khususnya di Aceh (9 jasad) dan Kabupaten Agam, Sumatera Barat (1 jasad).</p>
+
+<h4>Rincian Korban dan Dampak</h4>
+
+<p>Kepala Pusat Data, Informasi, dan Komunikasi Kebencanaan BNPB, Abdul Muhari, menjelaskan bahwa total korban meninggal dunia tersebar di tiga provinsi terdampak parah, yaitu Aceh, Sumatera Utara (Sumut), dan Sumatera Barat (Sumbar).</p>
+
+<h4>Korban Meninggal Dunia: 1.016 jiwa</h4>
+
+<p>Korban Hilang: 212 orang</p>
+
+<p>Pengungsi: Angka pengungsi dilaporkan berangsur-angsur menurun, namun masih ada ribuan warga yang berada di pengungsian.</p>
+
+<p>Proses identifikasi dan pencarian korban hilang masih terus dilakukan oleh tim SAR gabungan. Muhari juga menekankan sifat dinamis dari pencatatan data korban, di mana perbedaan data korban hilang dapat terjadi seiring dengan temuan baru di lapangan.</p>
+
+<p>Selain korban jiwa, bencana ini juga menyebabkan kerugian material yang sangat besar. Tercatat, infrastruktur vital seperti jembatan dan jalan banyak yang rusak, ribuan rumah terendam hingga hanyut, dan lahan pertanian serta fasilitas umum lainnya mengalami kerusakan parah. Diperkirakan kerugian materi di beberapa kabupaten seperti Agam telah mencapai ratusan miliar Rupiah.</p>
+
+<h4>Padang Kembali Diterjang Banjir Bandang</h4>
+
+<p>Sementara itu, Kota Padang, Sumatera Barat, kembali diterjang banjir bandang pada hari Minggu (14/12/2025) sore akibat intensitas hujan yang tinggi. Sejumlah permukiman dilaporkan terendam, bahkan beberapa rumah hanyut di kawasan seperti Batu Busuak, Kecamatan Pauh. Petugas gabungan terus mengimbau masyarakat di wilayah rawan banjir bandang untuk tetap waspada mengingat potensi curah hujan yang masih tinggi.</p>
+
+<p>BNPB dan pemerintah daerah terus berupaya maksimal dalam penanganan darurat, penyaluran bantuan logistik, pemulihan akses, serta menyiapkan hunian sementara bagi warga yang kehilangan tempat tinggal.</p>`, 
+            time: '8 jam lalu', 
             image: 'bencana.jpg' 
         },
         'kecelakaan-cilangkap': { 
             id: 'kecelakaan-cilangkap', 
             category: 'News Update', 
             title: 'Kecelakaan di Depan BRI Cilangkap, Pemotor Muda Tewas Usai Terjatuh ke Kolong Angkot', 
-            content: 'Terjadi kecelakaan sepeda motor dengan angkot Jaklingko di Jl Raya Cilangkap depan BRI Cilangkap atau Lucky Cell pada Rabu (12/11/25) sekitar pukul 07.00 WIB. Kecelakaan tersebut menjadikan pemotor pria berinisial JR (20) meninggal dunia di TKP setelah terlindas angkot Jaklingko. Motor korban yaitu Honda Supra X plat B 4631 TBV. Berdasarkan keterangan di lokasi, korban berusaha menyalip sepeda motor lain. Namun, ia diduga bersenggolan dengan pengendara tersebut hingga terjatuh kearah berlawanan dan masuk ke kolong angkot Jaklingko B 1826 BP yang tengah melintas. Tubuh korban terseret sekitar lima meter sebelum akhirnya meninggal dunia di lokasi. Korban mengalami luka cukup serius di bagian kepala, perut, dan lengan. "Senggolan terus jatoh ke kolong mobil saya, terus kelindes. Saya gak sadar, tau-taunya udah ada di kolong mobil," ucap Saptani selaku supir angkot Jaklingko. Petugas kepolisian kemudian mengevakuasi jasad korban dan mengamankan kedua kendaraan yang terlibat untuk penyelidikan lebih lanjut. Hingga kini, kasus kecelakaan tersebut masih ditangani Unit Laka Lantas Polsek Cipayung. Pihak kepolisian mengimbau para pengendara untuk tetap berhati-hati, menjaga jarak aman, serta tidak memaksakan diri menyalip pada kondisi lalu lintas padat guna mencegah kecelakaan serupa terulang kembali.', 
-            time: '8 jam lalu', 
+            author: 'Soraya Farah Balqis',
+            content: `<p>Sumber Gambar: Soraya Farah Balqis</p>
+
+<p>Jakarta, 12 November 2025 – Terjadi kecelakaan sepeda motor dengan angkot Jaklingko di Jl Raya Cilangkap depan BRI Cilangkap atau Lucky Cell pada Rabu (12/11/25) sekitar pukul 07.00 WIB. Kecelakaan tersebut menjadikan pemotor pria berinisial JR (20) meninggal dunia di TKP setelah terlindas angkot Jaklingko. Motor korban yaitu Honda Supra X plat B 4631 TBV.</p>
+
+<p>Berdasarkan keterangan di lokasi, korban berusaha menyalip sepeda motor lain. Namun, ia diduga bersenggolan dengan pengendara tersebut hingga terjatuh kearah berlawanan dan masuk ke kolong angkot Jaklingko B 1826 BP yang tengah melintas. Tubuh korban terseret sekitar lima meter sebelum akhirnya meninggal dunia di lokasi. Korban mengalami luka cukup serius di bagian kepala, perut, dan lengan.</p>
+
+<p>"Senggolan terus jatoh ke kolong mobil saya, terus kelindes. Saya gak sadar, tau-taunya udah ada di kolong mobil," ucap Saptani selaku supir angkot Jaklingko (12/11/25).</p>
+
+<p>Petugas kepolisian kemudian mengevakuasi jasad korban dan mengamankan kedua kendaraan yang terlibat untuk penyelidikan lebih lanjut. Hingga kini, kasus kecelakaan tersebut masih ditangani Unit Laka Lantas Polsek Cipayung. Pihak kepolisian mengimbau para pengendara untuk tetap berhati-hati, menjaga jarak aman, serta tidak memaksakan diri menyalip pada kondisi lalu lintas padat guna mencegah kecelakaan serupa terulang kembali.</p>`, 
+            time: '2 jam lalu', 
             image: 'kecelakaan.jpg' 
         },
         'fish-it': { 
             id: 'fish-it', 
             category: 'Hobby', 
             title: 'Di Balik Fenomena Fish It: Ketika Hiburan Berubah Menjadi Kecanduan', 
-            content: 'Dalam beberapa waktu terakhir, kecanduan terhadap permainan Fish It di dalam game Roblox telah menjadi perhatian banyak orang di dunia game online. Banyak pemain yang sanggup menghabiskan berjam-jam, bahkan berhari-hari tanpa jeda, hanya untuk mencapai target virtual dalam permainan itu. Situasi ini menunjukkan bagaimana permainan yang tampaknya sederhana namun sangat menarik dapat mengubah cara orang berperilaku dan mengatur waktu mereka. Artikel ini mengemukakan bahwa kecanduan terhadap Fish It tidak hanya muncul karena hiburan, tetapi juga oleh sistem hadiah digital yang dirancang untuk memberikan kepuasan psikologis kepada pemain. Kasus ini sangat penting untuk dibahas karena memakan waktu bermain yang jauh melebihi batas wajar, bahkan melebihi rata-rata jam bermain para pemain yang terkena kecanduan di Indonesia. Perilaku AFK 24 jam menunjukkan adanya pengaruh psikologis yang kuat, di mana pemain tergoda oleh rasa takut ketinggalan (FOMO) jika permainan tidak berjalan terus. Kecanduan membiarkan karakter bermain sendiri (AFK) terjadi karena desain game yang memanfaatkan psikologi hadiah secara terus-menerus. Game menawarkan hadiah otomatis selama pemain tetap online, sehingga membuat pemain merasa takut kalau mereka keluar dari permainan dan kehilangan hadiah yang mungkin didapat. Karena itu, mereka merasa lebih rugi jika menghentikan permainan daripada membiarkan karakter bermain sendiri terus-menerus. Fitur fasilitas otomatis seperti auto-fishing menciptakan standar kemajuan yang tidak sehat. Pemain yang tidak AFK akan tertinggal jauh dibandingkan pemain lain yang menggunakan waktu 24 jam sehari untuk bermain. Hal ini menciptakan tekanan sosial dalam komunitas, membuat pemain merasa perlu untuk juga AFK agar bisa ikut bersaing dan menghindari dianggap sebagai pemain yang lemah. Desain fitur "Fish It" dirancang dengan progres yang terus meningkat dan tidak pernah selesai. Setiap pencapaian kecil cepat diikuti oleh target yang lebih tinggi dan lebih sulit. Karena tidak ada titik kepuasan yang jelas, pemain merasa terpaksa terus AFK untuk mengejar pencapaian berikutnya dalam lingkaran obsesi yang tidak berkesudahan. Fenomena kecanduan bermain game selama berhari-hari seperti "Fish It" memiliki dampak serius yang tidak hanya terbatas pada lostnya waktu pribadi. Dampak terbesarnya adalah penurunan kualitas hidup dan produktivitas kalangan muda secara keseluruhan, di mana waktu tidur dan waktu belajar atau bekerja secara rutin digantikan dengan pengumpulan item virtual.', 
+            author: 'Achmad Irfan Virgianto',
+            content: `<p>Achmad Irfan Virgianto_44231714 Mario Mamahit_44231754</p>
+
+<p>Dalam beberapa waktu terakhir, kecanduan terhadap permainan Fish It di dalam game roblox telah menjadi perhatian banyak orang di dunia game online. Banyak pemain yang sanggup menghabiskan berjam-jam, bahkan berhari-hari tanpa jeda, hanya untuk mencapai target virtual dalam permainan itu. Situasi ini menunjukkan bagaimana permainan yang tampaknya sederhana namun sangat menarik dapat mengubah cara orang berperilaku dan mengatur waktu mereka. Artikel ini mengemukakan bahwa kecanduan terhadap Fish It tidak hanya muncul karena hiburan, tetapi juga oleh sistem hadiah digital yang dirancang untuk memberikan kepuasan psikologis kepada pemain.</p>
+
+<p>Kasus ini sangat penting untuk dibahas karena memakan waktu bermain yang jauh melebihi batas wajar, bahkan melebihi rata-rata jam bermain para pemain yang terkena kecanduan di Indonesia. Perilaku AFK 24 jam menunjukkan adanya pengaruh psikologis yang kuat, di mana pemain tergoda oleh rasa takut ketinggalan (FOMO) jika permainan tidak berjalan terus. Dengan demikian, "Fish It" menjadi contoh kasus penting dalam memahami bagaimana desain game yang terlihat sederhana bisa menyebabkan obsesi, serta membahayakan kesehatan mental pemain</p>
+
+<p>Kecanduan membiarkan karakter bermain sendiri (AFK) terjadi karena desain game yang memanfaatkan psikologi hadiah secara terus-menerus.Game menawarkan hadiah otomatis</p>
+
+<p>selama pemain tetap online, sehingga membuat pemain merasa takut kalau mereka keluar dari permainan dan kehilangan hadiah yang mungkin didapat. Karena itu, mereka merasa lebih rugi jika menghentikan permainan daripada membiarkan karakter bermain sendiri terus-menerus.</p>
+
+<p>Fitur fasilitas otomatis seperti auto-fishing menciptakan standar kemajuan yang tidak sehat. Pemain yang tidak AFK akan tertinggal jauh dibandingkan pemain lain yang menggunakan waktu 24 jam sehari untuk bermain. Hal ini menciptakan tekanan sosial dalam komunitas, membuat pemain merasa perlu untuk juga AFK agar bisa ikut bersaing dan menghindari dianggap sebagai pemain yang lemah.</p>
+
+<p>Desain fitur "Fish It" dirancang dengan progres yang terus meningkat dan tidak pernah selesai. Setiap pencapaian kecil cepat diikuti oleh target yang lebih tinggi dan lebih sulit. Karena tidak ada titik kepuasan yang jelas, pemain merasa terpaksa terus AFK untuk mengejar pencapaian berikutnya dalam lingkaran obsesi yang tidak berkesudahan.</p>
+
+<p>Saya harus mengakui, saya adalah bagian dari kecanduan AFK ekstrem ini, dan cerita saya menunjukkan betapa menakutkannya jebakan desain "Fish It." Obsesi saya terhadap grinding yang berlebihan mencapai puncaknya ketika saya mulai mengoperasikan tiga akun secara bersamaan, masing-masing menggunakan perangkat berbeda seperti komputer, laptop, dan ponsel. Ketiga perangkat ini menjadi urusan terakhir sebelum saya tidur. Rutinitasnya selalu sama memastikan ketiga karakter saya sudah berada dalam mode AFK memancing selama kurang lebih 12 jam sebelum saya pergi tidur. Masalahnya, kebiasaan ini mulai memengaruhi kehidupan akademis saya. Bahkan ketika dosen sedang mengajar, perhatian saya terpecah; saya harus sesekali mengecek ponsel untuk memastikan auto-fishing berjalan lancar atau menghindari terputus. Pengalaman ini menunjukkan bahwa rasa takut ketinggalan (FOMO) sudah mengambil alih akal sehat saya.</p>
+
+<p>Fenomena kecanduan bermain game selama berhari-hari seperti "Fish It" memiliki dampak serius yang tidak hanya terbatas pada lostnya waktu pribadi. Dampak terbesarnya adalah penurunan kualitas hidup dan produktivitas kalangan muda secara keseluruhan, di mana waktu tidur dan waktu belajar atau bekerja secara rutin digantikan dengan pengumpulan item virtual. Jika desain game terus dipakai untuk memanfaatkan kerentanan psikologis ini demi membuat pemain tetap terlibat, sampai kapan kita akan mengizinkan layar ponsel dan laptop menjadi prioritas utama, lebih penting dari kesehatan dan masa depan kita sendiri?</p>
+
+<p>Untuk mengatasi masalah kecanduan bermain game otomatis (AFK) yang sangat parah, solusi harus datang dari tiga pihak. Pertama, para pengembang game perlu mendorong penerapan etika desain game yang membatasi fitur grinding otomatis. Langkah konkret yang bisa dilakukan adalah menghilangkan atau membatasi efisiensi penghargaan (reward) setelah pemain mencapai batas waktu bermain yang wajar, misalnya setelah bermain selama 4 jam, efisiensi AFK turun secara signifikan. Dengan demikian, pemain akan lebih mudah untuk berhenti bermain dan log off.</p>
+
+<p>Sebagai penutup, saya ingin meninggalkan pertanyaan bagi setiap pembaca Jika Anda rela mengorbankan waktu tidur, fokus kuliah, dan waktu nyata Anda hanya untuk memastikan karakter Anda "memancing" secara pasif di dunia maya, siapa sebenarnya yang sedang mengendalikan hidup Anda? Sudah saatnya kita ambil kembali kendali waktu kita dari game yang tidak pernah memberi tahu kita kapan perlombaan itu berakhir.</p>`, 
             time: '9 jam lalu', 
             image: 'gaming.jpg' 
         },
@@ -989,7 +1281,18 @@
             id: 'mendaki-gunung', 
             category: 'Hobby', 
             title: 'Mendaki di Tengah Tren dan Tantangan: Hobi Mendaki Gunung di Indonesia Semakin Digemari tapi Waspada Tetap Utama', 
-            content: 'Mendaki gunung kembali menjadi salah satu hobi favorit masyarakat Indonesia pada tahun 2025, terutama di kalangan anak muda dan pencinta alam. Tren ini tidak hanya menarik minat lokal, tetapi juga pelancong internasional, meskipun diiringi dengan penyesuaian aturan dan peningkatan langkah keselamatan oleh otoritas terkait. Hobi mendaki gunung digemari oleh berbagai kalangan, mulai dari remaja, mahasiswa, hingga orang dewasa yang mencari pengalaman alam dan tantangan fisik. Aktivitas ini juga menarik pendaki dari luar negeri, seperti wisatawan Brasil dan Malaysia yang mendaki gunung-gunung populer di Indonesia. Mendaki gunung mencakup kegiatan seperti tracking jalur pegunungan, camping, dan summit attack (mencapai puncak) di berbagai gunung di Indonesia yang terkenal akan keindahan alamnya. Aktivitas ini menjadi bentuk hobi sekaligus olahraga karena membutuhkan kondisi fisik dan mental yang baik. Beberapa tempat pendakian yang paling banyak diminati diantaranya ada Gunung Semeru, Gunung Rinjani, Gunung Merbabu, dan masih banyak lagi. Minat terhadap mendaki gunung dipicu oleh beberapa hal seperti, dorongan untuk "healing" di alam terbuka dan menjadikan alam sebagai pelarian dari rutinitas digital. Media sosial yang mempopulerkan pengalaman mendaki dan pemandangan alam yang indah. Keinginan eksplorasi dan tantangan fisik, terutama bagi pendaki pemula yang ingin mencoba kemampuan diri sendiri. Meskipun menjadi hobi yang menarik, pendakian kini diawasi dan diatur dengan ketat oleh otoritas taman nasional yaitu dengan cara, pembatasan kuota harian dan jalur pendakian untuk mengurangi dampak lingkungan dan risiko. Contohnya, Gunung Semeru menerima maksimal 200 pendaki per hari sesuai SOP pada bulan Mei lalu. Penutupan jalur tertentu untuk evaluasi dan peningkatan fasilitas, seperti yang terjadi di Gunung Gede Pangrango sejak (13/10/25) untuk perbaikan dan program "Zero Waste Hiking Tourism". Persyaratan teknis pendakian seperti kuota, izin, dan perlengkapan wajib diatur secara resmi, seperti di kawasan Gunung Semeru di mana pendaki perlu memenuhi syarat ketat sebelum memulai perjalanan. Pejabat taman nasional dan lembaga terkait menghimbau para calon pendaki untuk tidak melakukan pendakian hanya karna tren FOMO (Fear Of Missing Out) atau takut ketinggalan, dan tidak mendaki tanpa izin. Harus mematuhi protokol keselamatan dan prioritaskan persiapan fisik, peralatan, serta pemahaman aturan pendakian yang berlaku demi keselamatan bersama.', 
+            author: 'Agra Marco Melandry',
+            content: `<p>Sumber gambar: tiktok @grizee05, @mytaurus____, @afwinn_, @arrasyid80</p>
+
+<p>Depok, 12 Desember 2025 - Mendaki gunung kembali menjadi salah satu hobi favorit masyarakat Indonesia pada tahun 2025, terutama di kalangan anak muda dan pencinta alam. Tren ini tidak hanya menarik minat lokal, tetapi juga pelancong internasional, meskipun diiringi dengan penyesuaian aturan dan peningkatan langkah keselamatan oleh otoritas terkait. Hobi mendaki gunung digemari oleh berbagai kalangan, mulai dari remaja, mahasiswa, hingga orang dewasa yang mencari pengalaman alam dan tantangan fisik. Aktivitas ini juga menarik pendaki dari luar negeri, seperti wisatawan Brasil dan Malaysia yang mendaki gunung-gunung populer di Indonesia.</p>
+
+<p>Mendaki gunung mencakup kegiatan seperti tracking jalur pegunungan, camping, dan summit attack (mencapai puncak) di berbagai gunung di Indonesia yang terkenal akan keindahan alamnya. Aktivitas ini menjadi bentuk hobi sekaligus olahraga karena membutuhkan kondisi fisik dan mental yang baik. Beberapa tempat pendakian yang paling banyak diminati diantaranya ada Gunung Semeru, Gunung Rinjani, Gunung Merbabu, dan masih banyak lagi.</p>
+
+<p>Minat terhadap mendaki gunung dipicu oleh beberapa hal seperti, dorongan untuk “healing” di alam terbuka dan menjadikan alam sebagai pelarian dari rutinitas digital. Media sosial yang mempopulerkan pengalaman mendaki dan pemandangan alam yang indah. Keinginan eksplorasi dan tantangan fisik, terutama bagi pendaki pemula yang ingin mencoba kemampuan diri sendiri.</p>
+
+<p>Meskipun menjadi hobi yang menarik, pendakian kini diawasi dan diatur dengan ketat oleh otoritas taman nasional yaitu dengan cara, pembatasan kuota harian dan jalur pendakian untuk mengurangi dampak lingkungan dan risiko. Contohnya, Gunung Semeru menerima maksimal 200 pendaki per hari sesuai SOP pada bulan Mei lalu. Penutupan jalur tertentu untuk evaluasi dan peningkatan fasilitas, seperti yang terjadi di Gunung Gede Pangrango sejak (13/10/25) untuk perbaikan dan program “Zero Waste Hiking Tourism”. Persyaratan teknis pendakian seperti kuota, izin, dan perlengkapan wajib diatur secara resmi, seperti di kawasan Gunung Semeru di mana pendaki perlu memenuhi syarat ketat sebelum memulai perjalanan.</p>
+
+<p>Pejabat taman nasional dan lembaga terkait menghimbau para calon pendaki untuk tidak melakukan pendakian hanya karna tren FOMO (Fear Of Missing Out) atau takut ketinggalan, dan tidak mendaki tanpa izin. Harus mematuhi protokol keselamatan dan prioritaskan persiapan fisik, peralatan, serta pemahaman aturan pendakian yang berlaku demi keselamatan bersama.</p>`, 
             time: '10 jam lalu', 
             image: 'mendaki.jpg' 
         },
@@ -997,7 +1300,14 @@
             id: 'slow-hobbies', 
             category: 'Hobby', 
             title: 'Tren "Slow Hobbies" Meningkat di Indonesia, Mulai Dari Crafting, Crochet, Sampai Pottery Menjadi Pilihan Anak Muda', 
-            content: 'Tren "slow hobbies" seperti crafting, merajut (crochet), dan membuat keramik (pottery) sedang naik daun di kalangan generasi muda Indonesia sepanjang 2025. Fenomena ini menggabungkan kegiatan tangan yang menghasilkan karya fisik dengan suasana santai tanpa tekanan kompetitif. Terlihat di berbagai kota besar salah satunya yaitu di Jakarta, ada beberapa studio pottery class di Jakarta yang ramai didatangi oleh anak muda seperti pelajar, mahasiswa, maupun pekerja muda. Mereka merasa kegiatan ini bisa menjadi pelarian dari padatnya aktivitas online, tugas sekolah, dan tekanan kerja. Banyak anak muda mengaku alasan mereka mengikuti tren ini adalah untuk mengurangi stress digital dan mencari ruang untuk "bernafas" dari layar ponsel. Menurut beberapa orang yang mengikuti kegiatan ini, crafting membuat mereka merasa lebih tenang, fokus, dan "lebih hidup" karena bisa menghasilkan karya nyata dengan hasil tangan sendiri. Menurut para pengamat gaya hidup dan kreatif, tren ini muncul karena generasi muda mulai jenuh dengan rutinitas digital dan ingin aktivitas yang lebih santai dan mindful. Sementara itu, komunitas slow hobbies berkembang dengan cara mengadakan pertemuan rutin, workshop sederhana, sharing teknik lewat grup daring, hingga menjual hasil karya lewat media sosial. Menariknya, beberapa peserta justru mulai menjadikan hobi ini sebagai sumber penghasilan tambahan dengan memasarkan hasil karyanya melalui platform daring dan media sosial, seperti menjual tas rajut, mug handmade, atau dekorasi miniatur. Tren ini diperkirakan akan terus berkembang karena anak muda merasa kegiatan kreatif seperti ini bukan cuma sekedar hobi saja, melainkan juga cara baru untuk merawat mental dan tetap produktif tanpa tekanan yang berlebih.', 
+            author: 'Aulia Putri Wijaya',
+            content: `<p>Sumber gambar: tiktok @kenny.djafar, tiktok @juwita.pobian, Instagram @veroyapari</p>
+
+<p>Bogor, 12 Desember 2025 - Tren “slow hobbies” seperti crafting, merajut (crochet), dan membuat keramik (pottery) sedang naik daun di kalangan generasi muda Indonesia sepanjang 2025. Fenomena ini menggabungkan kegiatan tangan yang menghasilkan karya fisik dengan suasana santai tanpa tekanan kompetitif. Terlihat di berbagai kota besar salah satunya yaitu di Jakarta, ada beberapa studio pottery class di Jakarta yang ramai didatangi oleh anak muda seperti pelajar, mahasiswa, maupun pekerja muda. Mereka merasa kegiatan ini bisa menjadi pelarian dari padatnya aktivitas online, tugas sekolah, dan tekanan kerja.</p>
+
+<p>Banyak anak muda mengaku alasan mereka mengikuti tren ini adalah untuk mengurangi stress digital dan mencari ruang untuk “bernafas” dari layar ponsel. Menurut beberapa orang yang mengikuti kegiatan ini, crafting membuat mereka merasa lebih tenang, fokus, dan “lebih hidup” karena bisa menghasilkan karya nyata dengan hasil tangan sendiri. Menurut para pengamat gaya hidup dan kreatif, tren ini muncul karena generasi muda mulai jenuh dengan rutinitas digital dan ingin aktivitas yang lebih santai dan mindful. Sementara itu, komunitas slow hobbies berkembang dengan cara mengadakan pertemuan rutin, workshop sederhana, sharing teknik lewat grup daring, hingga menjual hasil karya lewat media sosial.</p>
+
+<p>Menariknya, beberapa peserta justru mulai menjadikan hobi ini sebagai sumber penghasilan tambahan dengan memasarkan hasil karyanya melalui platform daring dan media sosial, seperti menjual tas rajut, mug handmade, atau dekorasi miniatur. Tren ini diperkirakan akan terus berkembang karena anak muda merasa kegiatan kreatif seperti ini bukan cuma sekedar hobi saja, melainkan juga cara baru untuk merawat mental dan tetap produktif tanpa tekanan yang berlebih.</p>`, 
             time: '11 jam lalu', 
             image: 'crafting.jpg' 
         },
@@ -1005,7 +1315,18 @@
             id: 'lemon-rrq', 
             category: 'Hobby', 
             title: 'Dari Hobi Bermain Game, Lemon RRQ Menjadi Pro Player Legendaris Indonesia', 
-            content: 'Nama Muhammad "Lemon" Ikhsan sudah tidak asing di dunia esports Indonesia, khususnya Mobile Legends. Namun siapa sangka, sebelum dikenal sebagai salah satu pro player terbaik di Tanah Air, Lemon hanya seorang remaja yang menjadikan game sebagai hobi di waktu luang. Sejak kecil, Lemon dikenal gemar bermain game. Awalnya, aktivitas tersebut hanya dianggap sebagai hiburan semata. Bahkan, seperti kebanyakan anak seusianya, bermain game sering dipandang negatif dan dianggap tidak memiliki masa depan yang jelas. Perjalanan Lemon berubah ketika ia mulai serius mengikuti turnamen-turnamen kecil Mobile Legends. Kemampuannya yang menonjol, terutama dalam menguasai banyak hero (multi-role), membuat namanya mulai diperhitungkan. Kerja keras dan konsistensi akhirnya membawanya bergabung dengan tim esports besar, RRQ (Rex Regum Qeon). Bersama RRQ, Lemon menorehkan berbagai prestasi bergengsi, mulai dari juara MPL Indonesia, hingga mengharumkan nama Indonesia di ajang internasional. Ia juga dijuluki sebagai "Alien" oleh para penggemar karena gaya bermainnya yang sulit ditebak dan selalu berada di atas rata-rata pemain lain. Meski telah meraih kesuksesan, Lemon dikenal sebagai sosok yang rendah hati dan sederhana. Ia juga sering mengingatkan bahwa menjadi pro player bukan hanya soal bermain game, tetapi juga soal disiplin, mental kuat, kerja tim, dan tanggung jawab. Kisah Lemon menjadi bukti bahwa hobi bermain game, jika ditekuni dengan serius dan positif, dapat berkembang menjadi prestasi dan profesi nyata. Di era berkembangnya industri esports, kisah ini sekaligus mengubah pandangan masyarakat bahwa bermain game tidak selalu identik dengan hal negatif, melainkan bisa menjadi jalan menuju masa depan yang gemilang.', 
+            author: 'Mario Mamahit',
+            content: `<p>Jakarta – Nama Muhammad “Lemon” Ikhsan sudah tidak asing di dunia esports Indonesia, khususnya Mobile Legends. Namun siapa sangka, sebelum dikenal sebagai salah satu pro player terbaik di Tanah Air, Lemon hanya seorang remaja yang menjadikan game sebagai hobi di waktu luang.</p>
+
+<p>Sejak kecil, Lemon dikenal gemar bermain game. Awalnya, aktivitas tersebut hanya dianggap sebagai hiburan semata. Bahkan, seperti kebanyakan anak seusianya, bermain game sering dipandang negatif dan dianggap tidak memiliki masa depan yang jelas.</p>
+
+<p>Perjalanan Lemon berubah ketika ia mulai serius mengikuti turnamen-turnamen kecil Mobile Legends. Kemampuannya yang menonjol, terutama dalam menguasai banyak hero (multi-role), membuat namanya mulai diperhitungkan. Kerja keras dan konsistensi akhirnya membawanya bergabung dengan tim esports besar, RRQ (Rex Regum Qeon).</p>
+
+<p>Bersama RRQ, Lemon menorehkan berbagai prestasi bergengsi, mulai dari juara MPL Indonesia, hingga mengharumkan nama Indonesia di ajang internasional. Ia juga dijuluki sebagai “Alien” oleh para penggemar karena gaya bermainnya yang sulit ditebak dan selalu berada di atas rata-rata pemain lain.</p>
+
+<p>Meski telah meraih kesuksesan, Lemon dikenal sebagai sosok yang rendah hati dan sederhana. Ia juga sering mengingatkan bahwa menjadi pro player bukan hanya soal bermain game, tetapi juga soal disiplin, mental kuat, kerja tim, dan tanggung jawab.</p>
+
+<p>Kisah Lemon menjadi bukti bahwa hobi bermain game, jika ditekuni dengan serius dan positif, dapat berkembang menjadi prestasi dan profesi nyata. Di era berkembangnya industri esports, kisah ini sekaligus mengubah pandangan masyarakat bahwa bermain game tidak selalu identik dengan hal negatif, melainkan bisa menjadi jalan menuju masa depan yang gemilang.</p>`, 
             time: '12 jam lalu', 
             image: 'esports.jpg' 
         },
@@ -1013,7 +1334,48 @@
             id: 'ridho-ikhtiar', 
             category: 'Entertain', 
             title: 'Ridho Ikhtiar: Dari Anak Pertama yang Berjuang, Kini Sukses Jadi Kreator TikTok', 
-            content: 'Nama Ridho Ikhtiar mungkin belum sepopuler para kreator terkenal, tetapi perjalanan hidupnya perlahan-lahan mulai mencuri perhatian banyak orang. Ia merupakan anak sulung dari tiga bersaudara yang sejak kecil sudah terbiasa melihat orang tuanya bekerja keras.', 
+            author: 'Mario Mamahit',
+            content: `<p>Nama Ridho Ikhtiar mungkin belum sepopuler para kreator terkenal, tetapi perjalanan hidupnya perlahan-lahan mulai mencuri perhatian banyak orang. Ia merupakan anak sulung dari tiga bersaudara yang sejak kecil sudah terbiasa melihat orang tuanya bekerja dengan keras ayah yang mengambil berbagai pekerjaan yang tersedia, dan ibu yang selalu memastikan segala sesuatu di rumah tetap berjalan meski dalam keadaan sulit.</p>
+
+<p>Ridho berkembang dengan pemahaman yang sederhana: untuk mengubah sesuatu, diperlukan usaha. “Tidak bisa hanya menunggu keadaan menjadi lebih baik dengan sendirinya,” itulah kira-kira prinsip yang dipegangnya sejak kecil.</p>
+
+<h4>Awal Mula di Kamar Kos</h4>
+
+<p>Perjalanan Ridho sebagai pembuat konten dimulai dari sebuah kamar kos yang kecil di Jakarta Timur. Kamarnya tidak luas hanya 3x4 meter dengan kasur tipis, lampu ring murah, dan meja kecil untuk meletakkan ponselnya saat merekam.</p>
+
+<p>Awalnya, Ridho hanya melakukan hal yang iseng. Ia membuat video lucu, melakukan tantangan kecil, dan kadang juga konten yang sederhana untuk hiburan. Namun, dari kesenangan tersebut, ia mulai menyadari peluang yang ada. Terutama ketika pandemi melanda, situasi pekerjaan ayahnya semakin sulit. Dari situ, Ridho mulai berpikir lebih serius: mungkin melalui konten, ada rezeki yang bisa ia dapatkan.</p>
+
+<h4>Mulai Dikenal Lewat Public Challenge</h4>
+
+<p>Nama Ridho mulai dikenal banyak orang setelah ia terus-menerus membuat konten tantangan publik. Konsepnya sangat sederhana. Ia memberikan tantangan kecil kepada orang-orang di jalan: menyanyikan satu bait lagu, menari selama 10 detik, atau menjawab pertanyaan lucu. Jika mereka berhasil, Ridho memberikan hadiah kecil berupa uang logam, makanan, atau voucher.</p>
+
+<p>Karena kesederhanaan dan keikhlasannya, konten tersebut disukai banyak orang. Penonton mengatakan bahwa kontennya “ringan tetapi membuat tersenyum,” sesuatu yang jarang ditemukan di tengah berbagai drama atau konten negatif yang sering muncul di media sosial.</p>
+
+<h4>Banyak Rintangan, Nggak Semua Mudah</h4>
+
+<p>Di balik tawa dan kontennya yang tampak menyenangkan, Ridho mengalami naik turun. Ada waktu ketika ia merekam seharian, mengedit hingga larut malam, tetapi videonya tidak mendapatkan perhatian. “Rasanya sangat melelahkan,” mungkin itu yang sering ia rasakan.</p>
+
+<p>Belum lagi ada komentar negatif: ada yang menyebut kontennya berlebihan, ada pula yang memandang sinis tentang cara bicaranya atau ekspresi wajahnya.</p>
+
+<p>Alih-alih mundur, Ridho justru memutuskan untuk belajar lebih banyak: etika dalam membuat konten di tempat umum, cara yang sopan berkomunikasi dengan orang asing, teknik pengeditan agar lebih rapi, hingga cara menyampaikan tantangan agar terdengar menarik. Semua itu ia pelajari sendiri melalui internet.</p>
+
+<h4>Mulai Terasa Hasilnya</h4>
+
+<p>Setahun kemudian, usaha yang dilakukan Ridho mulai membuahkan hasil. Akun media sosialnya berkembang menjadi ratusan ribu pengikut. Kerja sama dengan berbagai merek mulai datang meskipun sedikit di awal, tetapi cukup untuk membantu kebutuhan rumah tangga.</p>
+
+<p>Dari penghasilannya, Ridho dapat berkontribusi membayar tagihan listrik, memberikan uang untuk sekolah adiknya, bahkan mewujudkan impian kecil yang dahulu sulit ia lakukan: mentraktir orang tuanya makan di restoran.</p>
+
+<p>“Mungkin bagi orang lain hal ini biasa saja. Namun bagi saya, bisa mentraktir orang tua itu suatu kebahagiaan yang sangat luar biasa,” begitu kira-kira ia merasa.</p>
+
+<p>Sekarang Ridho telah berpindah dari kamar kos yang sempit ke sebuah kontrakan yang lebih baik. Tempat tinggalnya tidak glamor, tetapi cukup nyaman untuk mendukungnya bekerja dan hidup lebih tenang.</p>
+
+<h4>Pesan Ridho untuk Anak Muda</h4>
+
+<p>Ridho menyadari banyak anak muda yang ingin menjadi kreator, tetapi sering kali terhalang oleh masalah modal atau rasa kurang percaya diri. Oleh karena itu, ia sering menyampaikan pesan yang sama</p>
+
+<p>“Jangan menunggu sampai memiliki peralatan mahal. Mulailah dengan apa yang kamu punya. Yang terpenting adalah niat dan ketulusan.”</p>
+
+<p>Baginya, kesuksesan tidak diukur dari berapa banyak pengikut yang didapat, melainkan seberapa besar ia mampu membuat orang lain, terutama keluarganya yang selalu menjadi motivasi utama, merasa bahagia.</p>`, 
             time: '13 jam lalu', 
             image: 'tiktok.jpg' 
         },
@@ -1021,7 +1383,44 @@
             id: 'gofar-hilman', 
             category: 'Entertain', 
             title: 'Gofar Hilman: Dari Perjalanan Panjang ke Puncak Konten Digital', 
-            content: 'Di era digital saat ini, nama Gofar Hilman menjadi salah satu kisah menarik tentang bagaimana seorang kreator bisa bangkit dari berbagai tantangan hidup dan menemukan tempatnya di tengah industri konten yang sangat kompetitif. Gofar tidak hanya dikenal sebagai penyiar radio dan pengusaha kreatif, tetapi juga sebagai content creator yang terus berkembang, khususnya lewat program Grind Boys yang kini menjadi fenomena di YouTube Indonesia. Abdul Gofar Hilman lahir di Jakarta pada 26 April 1983. Ia tumbuh sebagai sosok yang tidak pernah berhenti berusaha. Setelah lulus SMA, karena keterbatasan dana, ia tidak melanjutkan studi ke jenjang yang lebih tinggi. Sebagai gantinya, ia memilih bekerja sebagai pedagang kaki lima yang menjual barang seperti kaset dan jaket bertema punk. Ia bekerja dengan keras, bahkan pernah tidur di jalanan demi bisa bertahan hidup. Perubahan besar dalam hidup Gofar dimulai ketika ia memasuki dunia penyiaran radio pada tahun 2012. Ia mulai bekerja di salah satu radio besar yang membuka jalan bagi nama Gofar untuk dikenal lebih luas oleh masyarakat. Gaya bicaranya yang santai dan penuh humor membuatnya cepat memiliki penggemar dan juga membawa banyak peluang baru. Keseriusan Gofar di bidang radio terlihat dari pencapaian besar di tahun 2019, saat ia memecahkan Rekor MURI sebagai penyiar radio dengan siaran terlama, yaitu 34 jam tanpa henti. Program berjudul "Radiothlon" ini juga memiliki tujuan sosial, yakni menggalang dana untuk membangun sekolah bagi korban bencana di Indonesia. Selain radio, Gofar juga memperluas kegiatan di YouTube dan podcast. Sejak tahun 2017, ia mulai fokus mengembangkan konten digital dengan mengundang berbagai musisi dan tokoh dalam acara diskusi santai namun penuh kedalaman. Salah satu langkah besar yang dilakukan Gofar di platform video digital adalah lewat acara Grind Boys, Sebuah program konten yang diproduksi di kanal YouTube pribadinya dan kini telah mencapai ratusan episode. Grind Boys dipandu oleh Gofar bersama dua temannya, Rico Lubis dan Mahesa Yuwanda (Wancoy). Menurut Rico Lubis, salah satu pembawa acara Grind Boys, ide program ini muncul karena ketiganya memang dulu teman sekolah menengah atas. Ia menjelaskan, "...konten ini dimulai karena kita bertiga memang teman SMA... packaging-nya seperti tempat nongkrong." Berbeda dari format podcast biasa, Grind Boys menggabungkan cerita santai, humor, dan pengalaman pribadi yang membuat acara ini mudah disukai oleh banyak penganut konten muda. Formatnya yang fleksibel justru memberi ruang bagi para pengisi acara untuk tampil dengan alami, Sehingga menciptakan hubungan yang kuat dengan penonton. Pada pertengahan 2025, Grind Boys sudah menyelesaikan lebih dari 190 episode dan menerima undangan kerja sama dengan berbagai tokoh publik di setiap episode. Tidak hanya sekadar obrolan, Grind Boys juga membawa merek mereka ke berbagai acara besar. Contohnya, di Indonesia Modification & Lifestyle Expo (IMX) 2025, trio ini menampilkan proyek modifikasi mobil mereka dalam sebuah aktivasi bertajuk "Grindboys: New Boys on The Wheels". Proyek ini tidak hanya menghibur para pengunjung, tetapi juga menunjukkan bagaimana konten kreatif bisa membawa pengalaman nyata di luar layar, Mulai dari belajar teknik modifikasi hingga memamerkan tiga unit mobil hasil karya mereka sendiri. Keberhasilan Grind Boys juga mencerminkan perubahan dalam cara masyarakat Indonesia mengakses konten digital. Mereka hadir tidak hanya sebagai pembawa obrolan ringan, tetapi sebagai sekelompok teman yang berbagi cerita kehidupan, masalah, dan proses pertumbuhan di usia dewasa, sesuatu yang relevan dengan banyak penonton. Kehadiran tamu-tamu terkenal seperti Bimo Ganindra, Pandji Pragiwaksono, dan Dokter Tirta di beberapa episode semakin memperkuat daya tarik konten ini. Saat kepopulerannya meningkat, Gofar pun tak lepas dari berbagai kritik dan kontroversi. Nama dan citranya pernah terlibat dalam isu-isu yang memicu perdebatan di media sosial. Namun, Gofar tetap aktif berkarya dan menjaga relevansinya melalui karya-karya kreatif yang terus diperbarui. Perjalanan Gofar Hilman dari seorang pemuda yang mencari jati diri hingga menjadi kreator yang dikenal lewat konten Grind Boys adalah cerita tentang ketekunan, persahabatan, dan perkembangan kreatif. Ia menunjukkan bahwa dari awalnya hanya sebuah pertemanan, kejujuran dalam berbicara, dan keberanian mengambil risiko, satu ide sederhana bisa berkembang menjadi fenomena digital yang disukai banyak orang.', 
+            author: 'Achmad Irfan Virgianto',
+            content: `<p>Depok – Di era digital saat ini, nama Gofar Hilman menjadi salah satu kisah menarik tentang bagaimana seorang kreator bisa bangkit dari berbagai tantangan hidup dan menemukan tempatnya di tengah industri konten yang sangat kompetitif. Gofar tidak hanya dikenal sebagai penyiar radio dan pengusaha kreatif, tetapi juga sebagai content creator yang terus berkembang, khususnya lewat program Grind Boys yang kini menjadi fenomena di YouTube Indonesia.</p>
+
+<h4>Awal Perjalanan: Dari Kaki Lima hingga Dunia Hiburan</h4>
+
+<p>Abdul Gofar Hilman lahir di Jakarta pada 26 April 1983. Ia tumbuh sebagai sosok yang tidak pernah berhenti berusaha. Setelah lulus SMA, karena keterbatasan dana, ia tidak melanjutkan studi ke jenjang yang lebih tinggi. Sebagai gantinya, ia memilih bekerja sebagai pedagang kaki lima yang menjual barang seperti kaset dan jaket bertema punk. Ia bekerja dengan keras, bahkan pernah tidur di jalanan demi bisa bertahan hidup..</p>
+
+<h4>Bangkit di Dunia Penyiaran dan Media Digital</h4>
+
+<p>Perubahan besar dalam hidup Gofar dimulai ketika ia memasuki dunia penyiaran radio pada tahun 2012. Ia mulai bekerja di salah satu radio besar yang membuka jalan bagi nama Gofar untuk dikenal lebih luas oleh masyarakat. Gaya bicaranya yang santai dan penuh humor membuatnya cepat memiliki penggemar dan juga membawa banyak peluang baru. Keseriusan Gofar di bidang radio terlihat dari pencapaian besar di tahun 2019, saat ia memecahkan Rekor MURI sebagai penyiar radio dengan siaran terlama, yaitu 34 jam tanpa henti.</p>
+
+<p>Program berjudul “Radiothlon” ini juga memiliki tujuan sosial, yakni menggalang dana untuk membangun sekolah bagi korban bencana di Indonesia. Selain radio, Gofar juga memperluas kegiatan di YouTube dan podcast.</p>
+
+<p>Sejak tahun 2017, ia mulai fokus mengembangkan konten digital dengan mengundang berbagai musisi dan tokoh dalam acara diskusi santai namun penuh kedalaman.</p>
+
+<h4>Grind Boys: Obrolan Kawan Lama yang Menjadi Fenomena Digital</h4>
+
+<p>Salah satu langkah besar yang dilakukan Gofar di platform video digital adalah lewat acara Grind Boys, Sebuah program konten yang diproduksi di kanal YouTube pribadinya dan kini telah mencapai ratusan episode. Grind Boys dipandu oleh Gofar bersama dua temannya, Rico Lubis dan Mahesa Yuwanda (Wancoy).</p>
+
+<p>Menurut Rico Lubis, salah satu pembawa acara Grind Boys, ide program ini muncul karena ketiganya memang dulu teman sekolah menengah atas.</p>
+
+<p>Ia menjelaskan, “…konten ini dimulai karena kita bertiga memang teman SMA… packaging-nya seperti tempat nongkrong.”</p>
+
+<p>Berbeda dari format podcast biasa, Grind Boys menggabungkan cerita santai, humor, dan pengalaman pribadi yang membuat acara ini mudah disukai oleh banyak penganut konten muda.</p>
+
+<p>Formatnya yang fleksibel justru memberi ruang bagi para pengisi acara untuk tampil dengan alami, Sehingga menciptakan hubungan yang kuat dengan penonton. Pada pertengahan 2025, Grind Boys sudah menyelesaikan lebih dari 190 episode dan menerima undangan kerja sama dengan berbagai tokoh publik di setiap episode.</p>
+
+<p>Tidak hanya sekadar obrolan, Grind Boys juga membawa merek mereka ke berbagai acara besar. Contohnya, di Indonesia Modification & Lifestyle Expo (IMX) 2025, trio ini menampilkan proyek modifikasi mobil mereka dalam sebuah aktivasi bertajuk “Grindboys: New Boys on The Wheels”. Proyek ini tidak hanya menghibur para pengunjung, tetapi juga menunjukkan bagaimana konten kreatif bisa membawa pengalaman nyata di luar layar, Mulai dari belajar teknik modifikasi hingga memamerkan tiga unit mobil hasil karya mereka sendiri.</p>
+
+<h4>Lebih dari Sekadar Konten: Filosofi dan Identitas</h4>
+
+<p>Keberhasilan Grind Boys juga mencerminkan perubahan dalam cara masyarakat Indonesia mengakses konten digital. Mereka hadir tidak hanya sebagai pembawa obrolan ringan, tetapi sebagai sekelompok teman yang berbagi cerita kehidupan, masalah, dan proses pertumbuhan di usia dewasa, sesuatu yang relevan dengan banyak penonton. Kehadiran tamu-tamu terkenal seperti Bimo Ganindra, Pandji Pragiwaksono, dan Dokter Tirta di beberapa episode semakin memperkuat daya tarik konten ini.</p>
+
+<h4>Menghadapi Tantangan dan Kritik</h4>
+
+<p>Saat kepopulerannya meningkat, Gofar pun tak lepas dari berbagai kritik dan kontroversi. Nama dan citranya pernah terlibat dalam isu-isu yang memicu perdebatan di media sosial. Namun, Gofar tetap aktif berkarya dan menjaga relevansinya melalui karya-karya kreatif yang terus diperbarui.</p>
+
+<p>Perjalanan Gofar Hilman dari seorang pemuda yang mencari jati diri hingga menjadi kreator yang dikenal lewat konten Grind Boys adalah cerita tentang ketekunan, persahabatan, dan perkembangan kreatif. Ia menunjukkan bahwa dari awalnya hanya sebuah pertemanan, kejujuran dalam berbicara, dan keberanian mengambil risiko, satu ide sederhana bisa berkembang menjadi fenomena digital yang disukai banyak orang.</p>`, 
             time: '14 jam lalu', 
             image: 'podcast.jpg' 
         },
@@ -1029,7 +1428,16 @@
             id: 'festival-lakontara', 
             category: 'Entertain', 
             title: 'Festival Lakontara 2025: Kemeriahan Panggung Seni dan Musik Nusantara Memikat Ribuan Penonton', 
-            content: 'Festival Lakontara 2025, perhelatan teater musikal dan musik tradisional Nusantara, sukses digelar di Balai Sarbini, Jakarta, pada Rabu malam (10/12/25). Acara ini menarik antusias tinggi dari penonton berbagai kalangan, termasuk pelajar, seniman, dan pecinta budaya Indonesia. Kegiatan Lakontara merupakan bagian dari upaya Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi untuk mengangkat seni pertunjukan Nusantara melalui kolaborasi antara perwakilan seni tradisional dan kreator muda. Panggung festival diwarnai oleh pementasan teater musikal, tari kontemporer, serta konser musik kolaboratif antara musisi tradisional dan modern. Salah satu penampil, Grup Kesenian Tari Betawi, mengatakan bahwa Lakontara memberi ruang bagi budaya lokal untuk diapresiasi generasi muda. "Ini bukan sekadar hiburan, tapi juga medium edukasi budaya," ujar perwakilan grup tersebut kepada wartawan. Selain itu, festival juga menghadirkan stan pameran seni rupa, kuliner nusantara, serta workshop singkat untuk generasi muda yang ingin mengeksplor kreativitas mereka di bidang seni pertunjukan. Para penonton menyampaikan kepuasannya atas kualitas pertunjukan dan suasana acara yang dinilai mampu menyatukan berbagai elemen budaya Indonesia. Penyelenggara menyatakan Lakontara 2025 akan menjadi agenda tahunan untuk memperkuat apresiasi seni nasional.', 
+            author: 'Aulia Putri Wijaya',
+            content: `<p>Sumber gambar: Instagram @lakontara.id</p>
+
+<p>Bogor, 12 Desember 2025 - Festival Lakontara 2025, perhelatan teater musikal dan musik tradisional Nusantara, sukses digelar di Balai Sarbini, Jakarta, pada Rabu malam (10/12/25). Acara ini menarik antusias tinggi dari penonton berbagai kalangan, termasuk pelajar, seniman, dan pecinta budaya Indonesia.</p>
+
+<p>Kegiatan Lakontara merupakan bagian dari upaya Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi untuk mengangkat seni pertunjukan Nusantara melalui kolaborasi antara perwakilan seni tradisional dan kreator muda. Panggung festival diwarnai oleh pementasan teater musikal, tari kontemporer, serta konser musik kolaboratif antara musisi tradisional dan modern.</p>
+
+<p>Salah satu penampil, Grup Kesenian Tari Betawi, mengatakan bahwa Lakontara memberi ruang bagi budaya lokal untuk diapresiasi generasi muda. “Ini bukan sekadar hiburan, tapi juga medium edukasi budaya,” ujar perwakilan grup tersebut kepada wartawan. Selain itu, festival juga menghadirkan stan pameran seni rupa, kuliner nusantara, serta workshop singkat untuk generasi muda yang ingin mengeksplor kreativitas mereka di bidang seni pertunjukan.</p>
+
+<p>Para penonton menyampaikan kepuasannya atas kualitas pertunjukan dan suasana acara yang dinilai mampu menyatukan berbagai elemen budaya Indonesia. Penyelenggara menyatakan Lakontara 2025 akan menjadi agenda tahunan untuk memperkuat apresiasi seni nasional.</p>`, 
             time: '15 jam lalu', 
             image: 'festival.jpg' 
         },
@@ -1037,7 +1445,16 @@
             id: 'vision-plus', 
             category: 'Entertain', 
             title: 'VISION+ dan iQIYI Luncurkan "Combo Asia", Era Baru Hiburan Streaming di Indonesia', 
-            content: 'Platform hiburan digital VISION+ dan iQIYI International resmi meluncurkan paket langganan terbaru bernama "Combo Asia" dalam acara peluncuran di Jakarta Concert Hall, iNews Tower, Rabu (26/11/25). Paket ini merupakan inovasi yang menghadirkan konten olahraga eksklusif, serial Asia, film, anime, hingga drama lokal dalam satu layanan terpadu untuk penonton Indonesia. Dalam sambutannya, Clarissa Tanoesoedibjo, Deputy CEO VISION+, mengatakan bahwa paket Combo Asia dirancang untuk memperluas pilihan hiburan digital bagi masyarakat Indonesia secara lengkap dan mudah diakses. "Melalui peluncuran Combo Asia, kami ingin memberikan pengalaman streaming yang lengkap, dengan memadukan hiburan premium Asia dan olahraga dalam satu paket, sehingga penonton bisa menikmati konten terbaik tanpa batas," ujar Clarissa saat konferensi pers peluncuran. Paket ini menghadirkan konten dari berbagai genre, termasuk pertandingan olahraga dunia seperti sepak bola dan tenis yang disiarkan melalui Premium Sports VISION+, serta berbagai drama populer, film dan anime kelas Asia dari iQIYI. Paket Combo Asia dapat diakses melalui aplikasi VISION+ dan iQIYI, serta dibundle dengan penawaran lewat mitra seperti Telkomsel, GoPay, dan Tokopedia untuk memberi kemudahan bagi pelanggan. Acara peluncuran juga dimeriahkan oleh kehadiran sejumlah artis dan bintang tamu, termasuk Esther Yu, Global Ambassador iQIYI, yang turut menyapa penonton Indonesia secara langsung dan berbagi pengalaman tentang perkembangan konten Asia yang semakin diminati di Tanah Air.', 
+            author: 'Agra Marco Melandry',
+            content: `<p>Sumber gambar: Instagram @visionplusid</p>
+
+<p>Depok, 12 Desember 2025 - Platform hiburan digital VISION+ dan iQIYI International resmi meluncurkan paket langganan terbaru bernama “Combo Asia” dalam acara peluncuran di Jakarta Concert Hall, iNews Tower, Rabu (26/11/25). Paket ini merupakan inovasi yang menghadirkan konten olahraga eksklusif, serial Asia, film, anime, hingga drama lokal dalam satu layanan terpadu untuk penonton Indonesia.</p>
+
+<p>Dalam sambutannya, Clarissa Tanoesoedibjo, Deputy CEO VISION+, mengatakan bahwa paket Combo Asia dirancang untuk memperluas pilihan hiburan digital bagi masyarakat Indonesia secara lengkap dan mudah diakses. “Melalui peluncuran Combo Asia, kami ingin memberikan pengalaman streaming yang lengkap, dengan memadukan hiburan premium Asia dan olahraga dalam satu paket, sehingga penonton bisa menikmati konten terbaik tanpa batas,” ujar Clarissa saat konferensi pers peluncuran.</p>
+
+<p>Paket ini menghadirkan konten dari berbagai genre, termasuk pertandingan olahraga dunia seperti sepak bola dan tenis yang disiarkan melalui Premium Sports VISION+, serta berbagai drama populer, film dan anime kelas Asia dari iQIYI. Paket Combo Asia dapat diakses melalui aplikasi VISION+ dan iQIYI, serta dibundle dengan penawaran lewat mitra seperti Telkomsel, GoPay, dan Tokopedia untuk memberi kemudahan bagi pelanggan.</p>
+
+<p>Acara peluncuran juga dimeriahkan oleh kehadiran sejumlah artis dan bintang tamu, termasuk Esther Yu, Global Ambassador iQIYI, yang turut menyapa penonton Indonesia secara langsung dan berbagi pengalaman tentang perkembangan konten Asia yang semakin diminati di Tanah Air.</p>`, 
             time: '16 jam lalu', 
             image: 'streaming.jpg' 
         },
@@ -1045,7 +1462,16 @@
             id: 'cortis-fashion', 
             category: 'Lifestyle', 
             title: 'Cortis Picu Tren Fashion TikTok, Recreate Outfit Jadi Fenomena Baru', 
-            content: 'TikTok kembali menjadi ajang bagi trend fashion terbaru yang dipicu oleh grup K-Pop baru, Cortis. Outfit mereka dalam video latihan tari dan panggung comeback terbaru telah memicu antusiasme luar biasa, dengan jutaan unggahan ulang dari para penggemar. Dalam waktu singkat, tagar #Cortis dan Fashion melesat ke puncak trend, mencatatkan tayangan yang mencapai jutaan. Gaya khas Cortis memadukan elemen streetwear modern dengan palet warna monokrom, ditambah lapisan pakaian yang sederhana namun berani. Para penata gaya grup ini berhasil menciptakan tampilan yang mudah ditiru, namun tetap terlihat tajam dan elegan. Ini menjadi sebuah resep yang membuatnya cepat menyebar luas. Platform TikTok kini dipenuhi video tutorial "Recreate Cortis Outfit" dari berbagai kreator, mulai dari pecinta fashion hingga penggemar biasa. Mereka menguraikan detail outfit seperti jaket oversized, rok cargo, crop top, hingga aksesoris metalik yang menjadi ciri khas Cortis. Banyak pengguna bahkan mengombinasikannya dengan barang bekas dari toko thrifting, sehingga trend ini menjadi lebih inklusif dan terjangkau. Tak hanya sekadar gaya, popularitas tren ini menunjukkan betapa kuatnya pengaruh K-Pop terhadap budaya fashion global. Estetika sebuah grup musik bisa memicu gelombang kreativitas massal dalam hitungan hari. Bagi banyak pengguna TikTok, mengikuti gaya Cortis bukan sekadar meniru, melainkan cara untuk mengekspresikan diri dan terhubung dengan komunitas penggemar.', 
+            author: 'Soraya Farah Balqis',
+            content: `<p>Sumber Gambar: Akun TikTok @zhafira_nz & @clarayaaa__</p>
+
+<p>Jakarta, 12 Desember 2025 - TikTok kembali menjadi ajang bagi trend fashion terbaru yang dipicu oleh grup K-Pop baru, Cortis. Outfit mereka dalam video latihan tari dan panggung comeback terbaru telah memicu antusiasme luar biasa, dengan jutaan unggahan ulang dari para penggemar. Dalam waktu singkat, tagar #Cortis dan #Fashion melesat ke puncak trend, mencatatkan tayangan yang mencapai jutaan.</p>
+
+<p>Gaya khas Cortis memadukan elemen streetwear modern dengan palet warna monokrom, ditambah lapisan pakaian yang sederhana namun berani. Para penata gaya grup ini berhasil menciptakan tampilan yang mudah ditiru, namun tetap terlihat tajam dan elegan. Ini menjadi sebuah resep yang membuatnya cepat menyebar luas.</p>
+
+<p>Platform TikTok kini dipenuhi video tutorial "Recreate Cortis Outfit" dari berbagai kreator, mulai dari pecinta fashion hingga penggemar biasa. Mereka menguraikan detail outfit seperti jaket oversized, rok cargo, crop top, hingga aksesoris metalik yang menjadi ciri khas Cortis. Banyak pengguna bahkan mengombinasikannya dengan barang bekas dari toko thrifting, sehingga trend ini menjadi lebih inklusif dan terjangkau.</p>
+
+<p>Tak hanya sekadar gaya, popularitas tren ini menunjukkan betapa kuatnya pengaruh K-Pop terhadap budaya fashion global. Estetika sebuah grup musik bisa memicu gelombang kreativitas massal dalam hitungan hari. Bagi banyak pengguna TikTok, mengikuti gaya Cortis bukan sekadar meniru, melainkan cara untuk mengekspresikan diri dan terhubung dengan komunitas penggemar.</p>`, 
             time: '17 jam lalu', 
             image: 'fashion.jpg' 
         },
@@ -1053,7 +1479,36 @@
             id: 'skin-minimalism', 
             category: 'Lifestyle', 
             title: 'Skin Minimalism, Tren Kecantikan 2025 yang Mengajak Kita Berhenti Berlebihan', 
-            content: 'Memasuki 2025, arah industri kecantikan justru bergerak sebaliknya. Tren yang dikenal sebagai skin minimalism atau skinimalism semakin menguat dan menjadi pendekatan baru dalam merawat kulit lebih sederhana, lebih sadar, dan lebih berfokus pada kesehatan kulit jangka panjang. Majalah Vogue dalam beberapa laporannya menyebut skin minimalism sebagai respons alami terhadap kelelahan konsumen akibat rutinitas skincare yang terlalu kompleks. Alih-alih mengejar hasil instan, konsumen kini mulai memprioritaskan keseimbangan skin barrier dan efektivitas produk yang benar-benar dibutuhkan kulit. Skin minimalism bukan berarti meninggalkan skincare sepenuhnya. Konsep ini menekankan penggunaan produk esensial dengan fungsi yang jelas, seperti pembersih lembut, pelembap yang mendukung skin barrier, dan sunscreen sebagai perlindungan utama. Media kesehatan Health bahkan menyebut tren ini sebagai salah satu tren kecantikan langka yang "benar-benar masuk akal" karena sejalan dengan rekomendasi dermatolog. Banyak ahli kulit menyoroti bahwa terlalu banyak bahan aktif, terutama bila digunakan tanpa pemahaman dapat memicu iritasi, jerawat, hingga peradangan kulit. Dengan rutinitas yang lebih minimal, risiko tersebut bisa ditekan, sekaligus membantu kulit beradaptasi secara alami. Ada beberapa faktor yang membuat tren ini terasa semakin relevan. Pertama, meningkatnya kesadaran akan skin barrier. Di berbagai media kecantikan seperti Glamour dan Allure, para dermatolog menekankan pentingnya ceramides, humektan, dan bahan penenang kulit sebagai fondasi utama perawatan kulit modern. Kedua, faktor keberlanjutan. Laporan industri kecantikan menunjukkan bahwa konsumen terutama generasi muda semakin selektif dalam membeli produk. Mereka cenderung memilih produk multifungsi dengan kemasan lebih ramah lingkungan, dibandingkan membeli banyak produk sekaligus. Pendekatan "buy less, but better" ini sejalan dengan filosofi skin minimalism. Ketiga, perubahan gaya hidup. Di era serba cepat, rutinitas skincare yang ringkas namun efektif terasa lebih realistis. Platform seperti TikTok dan Instagram turut mempercepat popularitas konsep ini melalui konten "3-step routine" yang mudah dipraktikkan dan relatable. Dalam praktiknya, rutinitas skin minimalism umumnya terdiri dari langkah-langkah dasar. Pagi hari dimulai dengan pembersih lembut, pelembap atau serum multifungsi, lalu sunscreen. Sementara malam hari cukup dengan pembersih dan pelembap, ditambah produk perawatan khusus hanya jika diperlukan, misalnya untuk jerawat atau hiperpigmentasi. Dermatolog yang diwawancarai Vogue juga menekankan pentingnya konsistensi dan kesabaran. Kulit membutuhkan waktu untuk menunjukkan perbaikan, terutama ketika fokusnya adalah kesehatan jangka panjang, bukan hasil instan. Skin minimalism di 2025 pada akhirnya bukan hanya soal estetika atau gaya hidup. Ia merepresentasikan pergeseran cara pandang terhadap kecantikan bahwa kulit sehat tidak selalu membutuhkan rutinitas panjang. Kadang, yang dibutuhkan hanyalah memahami kebutuhan kulit sendiri dan berani berhenti dari kebiasaan berlebihan. Dalam dunia kecantikan yang terus berkembang, skin minimalism hadir sebagai pengingat: merawat kulit seharusnya terasa menenangkan, bukan membingungkan.', 
+            author: 'Dian Putri Maharani',
+            content: `<p>Jakarta, 13 Desember 2025 - Beberapa tahun terakhir, rutinitas skincare terasa semakin rumit. Layer demi layer serum, toner dengan berbagai fungsi, hingga bahan aktif yang saling tumpang tindih. Namun memasuki 2025, arah industri kecantikan justru bergerak sebaliknya. Tren yang dikenal sebagai skin minimalism atau skinimalism semakin menguat dan menjadi pendekatan baru dalam merawat kulit lebih sederhana, lebih sadar, dan lebih berfokus pada kesehatan kulit jangka panjang.</p>
+
+<p>Majalah Vogue dalam beberapa laporannya menyebut skin minimalism sebagai respons alami terhadap kelelahan konsumen akibat rutinitas skincare yang terlalu kompleks. Alih-alih mengejar hasil instan, konsumen kini mulai memprioritaskan keseimbangan skin barrier dan efektivitas produk yang benar-benar dibutuhkan kulit.</p>
+
+<h4>Lebih sedikit produk, lebih banyak kesadaran</h4>
+
+<p>Skin minimalism bukan berarti meninggalkan skincare sepenuhnya. Konsep ini menekankan penggunaan produk esensial dengan fungsi yang jelas, seperti pembersih lembut, pelembap yang mendukung skin barrier, dan sunscreen sebagai perlindungan utama. Media kesehatan Health bahkan menyebut tren ini sebagai salah satu tren kecantikan langka yang “benar-benar masuk akal” karena sejalan dengan rekomendasi dermatolog.</p>
+
+<p>Banyak ahli kulit menyoroti bahwa terlalu banyak bahan aktif, terutama bila digunakan tanpa pemahaman dapat memicu iritasi, jerawat, hingga peradangan kulit. Dengan rutinitas yang lebih minimal, risiko tersebut bisa ditekan, sekaligus membantu kulit beradaptasi secara alami.</p>
+
+<h4>Mengapa skin minimalism terasa relevan di 2025?</h4>
+
+<p>Ada beberapa faktor yang membuat tren ini terasa semakin relevan. Pertama, meningkatnya kesadaran akan skin barrier. Di berbagai media kecantikan seperti Glamour dan Allure, para dermatolog menekankan pentingnya ceramides, humektan, dan bahan penenang kulit sebagai fondasi utama perawatan kulit modern.</p>
+
+<p>Kedua, faktor keberlanjutan. Laporan industri kecantikan menunjukkan bahwa konsumen terutama generasi muda semakin selektif dalam membeli produk. Mereka cenderung memilih produk multifungsi dengan kemasan lebih ramah lingkungan, dibandingkan membeli banyak produk sekaligus. Pendekatan “buy less, but better” ini sejalan dengan filosofi skin minimalism.</p>
+
+<p>Ketiga, perubahan gaya hidup. Di era serba cepat, rutinitas skincare yang ringkas namun efektif terasa lebih realistis. Platform seperti TikTok dan Instagram turut mempercepat popularitas konsep ini melalui konten “3-step routine” yang mudah dipraktikkan dan relatable.</p>
+
+<h4>Bagaimana praktik skin minimalism dalam kehidupan sehari-hari?</h4>
+
+<p>Dalam praktiknya, rutinitas skin minimalism umumnya terdiri dari langkah-langkah dasar. Pagi hari dimulai dengan pembersih lembut, pelembap atau serum multifungsi, lalu sunscreen. Sementara malam hari cukup dengan pembersih dan pelembap, ditambah produk perawatan khusus hanya jika diperlukan, misalnya untuk jerawat atau hiperpigmentasi.</p>
+
+<p>Dermatolog yang diwawancarai Vogue juga menekankan pentingnya konsistensi dan kesabaran. Kulit membutuhkan waktu untuk menunjukkan perbaikan, terutama ketika fokusnya adalah kesehatan jangka panjang, bukan hasil instan.</p>
+
+<h4>Lebih dari sekadar tren</h4>
+
+<p>Skin minimalism di 2025 pada akhirnya bukan hanya soal estetika atau gaya hidup. Ia merepresentasikan pergeseran cara pandang terhadap kecantikan bahwa kulit sehat tidak selalu membutuhkan rutinitas panjang. Kadang, yang dibutuhkan hanyalah memahami kebutuhan kulit sendiri dan berani berhenti dari kebiasaan berlebihan.</p>
+
+<p>Dalam dunia kecantikan yang terus berkembang, skin minimalism hadir sebagai pengingat: merawat kulit seharusnya terasa menenangkan, bukan membingungkan.</p>`, 
             time: '18 jam lalu', 
             image: 'skincare.jpg' 
         },
@@ -1061,7 +1516,20 @@
             id: 'staycation-trend', 
             category: 'Lifestyle', 
             title: '"Staycation" dan "Workation" Masih Mendominasi, Destinasi Alam Mulai Bersinar di Akhir Tahun 2025', 
-            content: 'Jelang Natal dan Tahun Baru, tren liburan akhir tahun 2025 menunjukkan pergeseran menarik. Meskipun konsep "Staycation" (liburan dekat rumah) dan "Workation" (bekerja sambil berlibur) masih menjadi pilihan populer karena alasan fleksibilitas dan efisiensi biaya, terjadi lonjakan signifikan dalam permintaan akomodasi bernuansa alam terbuka. Data dari berbagai platform pemesanan hotel menunjukkan bahwa resor-resor di pegunungan, glamping mewah di tepi danau, dan villa terpencil dengan pemandangan sawah mengalami peningkatan booking hingga 40% dibandingkan tahun sebelumnya. Psikolog lifestyle, Dr. Risa Anggraini, menjelaskan fenomena ini sebagai keinginan kolektif untuk "melepaskan diri" dari hiruk pikuk digital. "Setelah bertahun-tahun didominasi oleh kerja hibrida dan interaksi virtual, masyarakat mencari koneksi autentik, baik dengan alam maupun dengan orang terdekat," ujarnya. Untuk Staycation: Piyama set mewah, lounge wear dari bahan katun organik. Untuk Alam/Glamping: Outerwear fungsional namun stylish, seperti jaket puffer ringan, sepatu hiking minimalis, dan topi rajut tebal.', 
+            author: 'Muhammad Athar Ghailan',
+            content: `<p>Jakarta, 15 Desember 2025 - Jelang Natal dan Tahun Baru, tren liburan akhir tahun 2025 menunjukkan pergeseran menarik. Meskipun konsep "Staycation" (liburan dekat rumah) dan "Workation" (bekerja sambil berlibur) masih menjadi pilihan populer karena alasan fleksibilitas dan efisiensi biaya, terjadi lonjakan signifikan dalam permintaan akomodasi bernuansa alam terbuka.</p>
+
+<p>Data dari berbagai platform pemesanan hotel menunjukkan bahwa resor-resor di pegunungan, glamping mewah di tepi danau, dan villa terpencil dengan pemandangan sawah mengalami peningkatan booking hingga 40% dibandingkan tahun sebelumnya.</p>
+
+<h4>Keputusan untuk Unplug</h4>
+
+<p>Psikolog lifestyle, Dr. Risa Anggraini, menjelaskan fenomena ini sebagai keinginan kolektif untuk "melepaskan diri" dari hiruk pikuk digital. "Setelah bertahun-tahun didominasi oleh kerja hibrida dan interaksi virtual, masyarakat mencari koneksi autentik, baik dengan alam maupun dengan orang terdekat," ujarnya.</p>
+
+<h4>Prediksi Outfit Liburan:</h4>
+
+<p>Untuk Staycation: Piyama set mewah, lounge wear dari bahan katun organik.</p>
+
+<p>Untuk Alam/Glamping: Outerwear fungsional namun stylish, seperti jaket puffer ringan, sepatu hiking minimalis, dan topi rajut tebal.</p>`, 
             time: '19 jam lalu', 
             image: 'vacation.jpg' 
         },
@@ -1069,7 +1537,32 @@
             id: 'skin-barrier', 
             category: 'Lifestyle', 
             title: '"Skin Barrier Hero": Tren Skincare Desember Fokus pada Pemulihan dan Double Moisturizing', 
-            content: 'Musim liburan yang identik dengan perjalanan, perubahan cuaca ekstrem (dari panas ke dingin AC), serta konsumsi makanan kaya kalori memicu respons baru di industri kecantikan: Fokus pada Pemulihan Skin Barrier. Para penggemar skincare di akhir tahun 2025 mulai memprioritaskan produk dengan kandungan yang berfungsi sebagai "Pahlawan Pelindung Kulit" (Skin Barrier Hero). Bahan Utama yang Dicari: Ceramide: Kunci untuk memperbaiki lapisan pelindung kulit. Hyaluronic Acid (Low Molecular Weight): Untuk hidrasi mendalam tanpa rasa lengket. Niacinamide: Dalam konsentrasi rendah hingga sedang (2-5%) untuk menenangkan. Tren baru yang muncul adalah "Double Moisturizing" - penggunaan dua lapis pelembap yang berbeda. Lapisan pertama menggunakan pelembap berbahan dasar air (gel) untuk hidrasi, diikuti oleh lapisan kedua berupa face oil atau cream yang lebih tebal (occlusive) untuk mengunci semua kebaikan skincare dan melindungi dari penguapan saat tidur atau bepergian. "Ini adalah cara efektif untuk mencegah kulit kusam atau meradang akibat stres liburan," kata Bea Puspita, seorang Beauty Vlogger terkemuka. Rekomendasi Skincare Liburan Singkat: 1. Cleansing Balm (wajib untuk menghapus makeup dan sunscreen tebal). 2. Serum Ceramide. 3. Double Moisturizing (Gel + Cream).', 
+            author: 'Wildan Naufal Arifin',
+            content: `<p>Surabaya, 15 Desember 2025 - Musim liburan yang identik dengan perjalanan, perubahan cuaca ekstrem (dari panas ke dingin AC), serta konsumsi makanan kaya kalori memicu respons baru di industri kecantikan: Fokus pada Pemulihan Skin Barrier.</p>
+
+<p>Para penggemar skincare di akhir tahun 2025 mulai memprioritaskan produk dengan kandungan yang berfungsi sebagai "Pahlawan Pelindung Kulit" (Skin Barrier Hero).</p>
+
+<h4>Bahan Utama yang Dicari:</h4>
+
+<p>Ceramide: Kunci untuk memperbaiki lapisan pelindung kulit.</p>
+
+<p>Hyaluronic Acid (Low Molecular Weight): Untuk hidrasi mendalam tanpa rasa lengket.</p>
+
+<p>Niacinamide: Dalam konsentrasi rendah hingga sedang (2-5%) untuk menenangkan.</p>
+
+<h4>Teknik "Double Moisturizing":</h4>
+
+<p>Tren baru yang muncul adalah "Double Moisturizing"—penggunaan dua lapis pelembap yang berbeda. Lapisan pertama menggunakan pelembap berbahan dasar air (gel) untuk hidrasi, diikuti oleh lapisan kedua berupa face oil atau cream yang lebih tebal (occlusive) untuk mengunci semua kebaikan skincare dan melindungi dari penguapan saat tidur atau bepergian.</p>
+
+<p>"Ini adalah cara efektif untuk mencegah kulit kusam atau meradang akibat stres liburan," kata Bea Puspita, seorang Beauty Vlogger terkemuka.</p>
+
+<h4>Rekomendasi Skincare Liburan Singkat:</h4>
+
+<p>Cleansing Balm (wajib untuk menghapus makeup dan sunscreen tebal).</p>
+
+<p>Serum Ceramide</p>
+
+<p>Double Moisturizing (Gel + Cream).</p>`, 
             time: '20 jam lalu', 
             image: 'skincare2.jpg' 
         }
@@ -1114,9 +1607,15 @@
         }
     ];
 
-    // Gabungkan semua data berita
+    // Gabungkan semua data berita - hanya jika belum ada di allNewsData
     newStoriesData.forEach(item => {
-        allNewsData[item.id] = item;
+        if (!allNewsData[item.id]) {
+            allNewsData[item.id] = item;
+        } else {
+            // Update hanya field yang belum ada, jangan override konten lengkap
+            if (!allNewsData[item.id].time) allNewsData[item.id].time = item.time;
+            if (!allNewsData[item.id].image) allNewsData[item.id].image = item.image;
+        }
     });
 
     // Tambahkan data berita populer ke allNewsData
@@ -1136,6 +1635,76 @@
     const newsPerLoad = 4;
     let currentPage = 'home';
 
+    // Fungsi untuk membatasi jumlah kata di landing page
+    function truncateText(text, maxWords = 50) {
+        if (!text) return '';
+        // Hapus tag HTML untuk menghitung kata
+        const textWithoutTags = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        const words = textWithoutTags.split(' ');
+        if (words.length <= maxWords) return text;
+        return words.slice(0, maxWords).join(' ') + '...';
+    }
+
+    // Fungsi untuk mendapatkan komentar dari localStorage
+    function getComments(newsId) {
+        const commentsKey = `hypez_comments_${newsId}`;
+        const comments = localStorage.getItem(commentsKey);
+        return comments ? JSON.parse(comments) : [];
+    }
+
+    // Fungsi untuk menyimpan komentar ke localStorage
+    function saveComment(newsId, comment) {
+        const commentsKey = `hypez_comments_${newsId}`;
+        const comments = getComments(newsId);
+        comments.push(comment);
+        localStorage.setItem(commentsKey, JSON.stringify(comments));
+    }
+
+    // Fungsi untuk menampilkan komentar
+    function displayComments(newsId) {
+        const comments = getComments(newsId);
+        let commentsHTML = '';
+        
+        if (comments.length > 0) {
+            comments.forEach(comment => {
+                const avatarLetter = comment.name.charAt(0).toUpperCase();
+                const commentTime = new Date(comment.timestamp).toLocaleString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                commentsHTML += `
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-header-flex">
+                                <div class="comment-avatar">${avatarLetter}</div>
+                                <div class="comment-meta">
+                                    <div class="comment-author">${comment.name}</div>
+                                    <div class="comment-time">${commentTime}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            ${comment.content}
+                        </div>
+                    </div>
+                `;
+            });
+        } else {
+            commentsHTML = `
+                <div class="no-comments">
+                    <i class="fas fa-comment-slash" style="font-size: 2rem; color: var(--gray-medium); margin-bottom: 10px;"></i>
+                    <p>Belum ada komentar untuk berita ini. Jadilah yang pertama berkomentar!</p>
+                </div>
+            `;
+        }
+        
+        return commentsHTML;
+    }
+
     function goHome() {
         location.reload();
     }
@@ -1144,11 +1713,64 @@
         location.reload();
     }
 
+    // Fungsi untuk menghapus semua komentar dari localStorage
+    function clearAllComments() {
+        const keys = Object.keys(localStorage);
+        let count = 0;
+        keys.forEach(key => {
+            if (key.startsWith('hypez_comments_')) {
+                localStorage.removeItem(key);
+                count++;
+            }
+        });
+        if (count > 0) {
+            console.log(`Cleared ${count} comment entries`);
+        }
+    }
+
+    // Clear semua komentar saat halaman dimuat (untuk menghapus komentar tes)
+    clearAllComments();
+
+    function showAboutUs() {
+        const mainContent = document.getElementById('main-content');
+        mainContent.innerHTML = `
+            <div style="margin: 20px 0;">
+                <button onclick="goBack()" style="background: var(--primary-blue); color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </button>
+            </div>
+            <article style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px var(--shadow); max-width: 900px; margin: 0 auto;">
+                <h1 style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 30px; text-align: center;">
+                    <i class="fas fa-info-circle"></i> Tentang Kami
+                </h1>
+                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); text-align: justify; text-justify: inter-word;">
+                    <p style="margin-bottom: 20px; font-size: 1.2rem;">
+                        HypeZ adalah portal berita digital buat kamu yang nggak mau ketinggalan tren tapi tetap peduli sama fakta. Kami hadir untuk Generasi Z yang butuh informasi cepat, relevan, dan bisa dipercaya.
+                    </p>
+                    
+                    <p style="margin-bottom: 20px;">
+                        Dengan slogan <strong>"Timely & True"</strong>, HypeZ menyajikan berita dan topik hangat seputar lifestyle, entertainment, news, dan hobby yang dikemas ringan, relate, dan anti ribet. Dari hal yang lagi viral sampai isu penting yang berdampak ke anak muda, semuanya kami kurasi biar kamu tetap update tanpa termakan hoaks.
+                    </p>
+                    
+                    <p style="margin-bottom: 20px;">
+                        HypeZ bukan cuma soal hype, tapi juga soal kebenaran. Karena buat kami, jadi up-to-date itu penting, tapi dapat info yang valid itu wajib.
+                    </p>
+                </div>
+            </article>
+        `;
+        window.scrollTo(0, 0);
+        currentPage = 'about';
+    }
+
+    window.showAboutUs = showAboutUs;
+
     function showNewsDetail(newsId) {
         const newsData = allNewsData[newsId];
         if (!newsData) return;
 
         const mainContent = document.getElementById('main-content');
+        const commentsHTML = displayComments(newsId);
+        
         mainContent.innerHTML = `
             <div style="margin: 20px 0;">
                 <button onclick="goBack()" style="background: var(--primary-blue); color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
@@ -1159,13 +1781,14 @@
                 <span class="category">${newsData.category}</span>
                 <h1 style="font-size: 2.5rem; color: var(--primary-blue); margin: 20px 0;">${newsData.title}</h1>
                 <div style="color: var(--gray-dark); margin-bottom: 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                    <span><i class="far fa-clock"></i> ${newsData.time}</span>
-                    <span><i class="fas fa-user"></i> Redaksi HypeZ</span>
+                    <span><i class="far fa-clock"></i> ${newsData.time || 'Baru saja'}</span>
+                    <span><i class="fas fa-user"></i> ${newsData.author || 'Redaksi HypeZ'}</span>
                     <span><i class="fas fa-eye"></i> ${Math.floor(Math.random() * 5000) + 1000} views</span>
+                    <span class="comment-count"><i class="fas fa-comment"></i> ${getComments(newsId).length} komentar</span>
                 </div>
-                <img src="${newsData.image}" alt="${newsData.title}" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 30px;">
-                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
-                    <p style="margin-bottom: 20px;">${newsData.content}</p>
+                <img src="${newsData.image}" alt="${newsData.title}" style="width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px; margin-bottom: 30px; background: var(--gray-light);">
+                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); text-align: justify; text-justify: inter-word;">
+                    ${newsData.content}
                 </div>
                 <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--gray-medium);">
                     <h3 style="color: var(--primary-blue); margin-bottom: 20px;"><i class="fas fa-share-alt"></i> Bagikan Artikel</h3>
@@ -1176,7 +1799,60 @@
                     </div>
                 </div>
             </article>
+            
+            <!-- Bagian Komentar -->
+            <section class="comment-section">
+                <h3><i class="fas fa-comments"></i> Komentar ${getComments(newsId).length > 0 ? `(${getComments(newsId).length})` : ''}</h3>
+                
+                <!-- Form Komentar -->
+                <div class="comment-form">
+                    <form id="comment-form-${newsId}">
+                        <div class="form-group">
+                            <label for="comment-name-${newsId}">Nama Anda *</label>
+                            <input type="text" id="comment-name-${newsId}" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment-content-${newsId}">Komentar *</label>
+                            <textarea id="comment-content-${newsId}" placeholder="Tulis komentar Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="comment-btn">
+                            <i class="fas fa-paper-plane"></i> Kirim Komentar
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Daftar Komentar -->
+                <div class="comments-list">
+                    ${commentsHTML}
+                </div>
+            </section>
         `;
+
+        // Tambahkan event listener untuk form komentar
+        const commentForm = document.getElementById(`comment-form-${newsId}`);
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById(`comment-name-${newsId}`).value.trim();
+            const content = document.getElementById(`comment-content-${newsId}`).value.trim();
+            
+            if (!name || !content) {
+                alert('Harap isi semua field yang diperlukan.');
+                return;
+            }
+            
+            const comment = {
+                name: name,
+                content: content,
+                timestamp: new Date().toISOString()
+            };
+            
+            saveComment(newsId, comment);
+            alert('Komentar Anda telah berhasil dikirim!');
+            
+            // Refresh halaman untuk menampilkan komentar baru
+            showNewsDetail(newsId);
+        });
         
         window.scrollTo(0, 0);
         currentPage = 'detail';
@@ -1213,8 +1889,11 @@
                         <div>
                             <span class="category">${item.category}</span>
                             <h3><a href="#" onclick="event.preventDefault()">${item.title}</a></h3>
-                            <p>${item.content}</p>
-                            <span class="timestamp"><i class="far fa-clock"></i> ${item.time}</span>
+                            <p>${truncateText(item.content, 50)}</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> ${item.time || 'Baru saja'}</span>
+                            <div style="margin-top: 10px; font-size: 0.9rem; color: var(--gray-dark);">
+                                <i class="fas fa-comment"></i> ${getComments(item.id).length} komentar
+                            </div>
                         </div>
                     </article>
                 `).join('') : '<div class="no-results"><p>Tidak ada berita dalam kategori ini.</p></div>'}
@@ -1259,8 +1938,11 @@
                         <div>
                             <span class="category">${item.category}</span>
                             <h3><a href="#" onclick="event.preventDefault()">${item.title}</a></h3>
-                            <p>${item.content}</p>
-                            <span class="timestamp"><i class="far fa-clock"></i> ${item.time}</span>
+                            <p>${truncateText(item.content, 50)}</p>
+                            <span class="timestamp"><i class="far fa-clock"></i> ${item.time || 'Baru saja'}</span>
+                            <div style="margin-top: 10px; font-size: 0.9rem; color: var(--gray-dark);">
+                                <i class="fas fa-comment"></i> ${getComments(item.id).length} komentar
+                            </div>
                         </div>
                     </article>
                 `).join('') : '<div class="no-results"><i class="fas fa-search" style="font-size: 3rem; color: var(--gray-medium); margin-bottom: 20px;"></i><p>Tidak ada hasil yang ditemukan untuk "<strong>' + query + '</strong>"</p><p style="color: var(--gray-dark); margin-top: 10px;">Coba gunakan kata kunci yang berbeda.</p></div>'}
@@ -1287,8 +1969,11 @@
                 <div>
                     <span class="category">${item.category}</span>
                     <h3><a href="#" onclick="event.preventDefault()">${item.title}</a></h3>
-                    <p>${item.content}</p>
-                    <span class="timestamp"><i class="far fa-clock"></i> ${item.time}</span>
+                    <p>${truncateText(item.content, 50)}</p>
+                    <span class="timestamp"><i class="far fa-clock"></i> ${item.time || 'Baru saja'}</span>
+                    <div style="margin-top: 10px; font-size: 0.9rem; color: var(--gray-dark);">
+                        <i class="fas fa-comment"></i> ${getComments(item.id).length} komentar
+                    </div>
                 </div>
             `;
             mainColumn.insertBefore(article, loadMoreBtn);
@@ -1305,6 +1990,31 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+        // Proses HTML statis di landing page untuk truncate teks
+        const staticNewsItems = document.querySelectorAll('.news-item');
+        staticNewsItems.forEach(item => {
+            const paragraphs = item.querySelectorAll('p');
+            if (paragraphs.length > 0) {
+                let allText = '';
+                paragraphs.forEach(p => {
+                    allText += p.textContent + ' ';
+                });
+                const truncated = truncateText(allText.trim(), 50);
+                // Hapus semua paragraf dan ganti dengan satu paragraf yang sudah di-truncate
+                paragraphs.forEach((p, index) => {
+                    if (index === 0) {
+                        p.textContent = truncated;
+                    } else {
+                        p.remove();
+                    }
+                });
+                // Hapus heading h4 jika ada
+                const h4s = item.querySelectorAll('h4');
+                h4s.forEach(h4 => h4.remove());
+            }
+        });
+
+
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const mainNav = document.getElementById('main-nav');
         const loadMoreBtn = document.getElementById('load-more');
@@ -1366,6 +2076,20 @@
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', loadMoreNews);
         }
+
+        // Event listener untuk footer links
+        const footerLinks = document.querySelectorAll('.footer-links a');
+        footerLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const linkText = this.textContent.trim();
+                
+                if (linkText.includes('Tentang Kami')) {
+                    showAboutUs();
+                }
+                // Tambahkan handler untuk link footer lainnya jika diperlukan
+            });
+        });
 
         if (commentForm) {
             commentForm.addEventListener('submit', function(e) {
